@@ -1,9 +1,12 @@
 import React from "react";
+import NavigationBar from "./NavigationBar";
+import Hero from "./Hero";
 
 function App() {
 	return (
-		<div>
-			<h1>Hello World!</h1>
+		<div className="font-Montserrat bg-black_bg">
+			<NavigationBar></NavigationBar>
+			<Hero></Hero>
 		</div>
 	);
 }

@@ -1,0 +1,307 @@
+import React, { useEffect } from "react";
+import {
+	faHtml5,
+	faCss3Alt,
+	faJs,
+	faReact,
+	faNodeJs,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+function Home() {
+	function scrolled(event) {
+		// alert("scrolled");
+
+		scale += event.deltaX * 0.1;
+		const scrollMax = 200;
+		scale = Math.min(Math.max(0, scale), scrollMax);
+
+		console.log(Math.trunc(scale / 2) + "%");
+
+		const p = document.getElementById("progress");
+		p.style.width = Math.trunc(scale / 2) + "%";
+		const scrollSegment = scrollMax / 4;
+		const breaks = [
+			scrollSegment,
+			scrollSegment * 2,
+			scrollSegment * 3,
+			scrollSegment * 4,
+		];
+
+		if (scale > scrollSegment) {
+			const scroll_ind = document.querySelector(".scroll-indicator");
+			scroll_ind.style = "opacity: 0";
+		}
+		// console.log(scale);
+
+		if (scale < breaks[0]) {
+			console.log(1);
+			// document.querySelector(".about1").classList.remove("hidden");
+			// document.querySelector(".about2").classList.add("hidden");
+			// document.querySelector(".about3").classList.add("hidden");
+			// document.querySelector(".about4").classList.add("hidden");
+			document.querySelector(".about1").style = "opacity: 100;";
+			document.querySelector(".about2").style = "opacity: 0;";
+			document.querySelector(".about3").style = "opacity: 0;";
+			document.querySelector(".about4").style = "opacity: 0;";
+		} else if (scale < breaks[1]) {
+			console.log(2);
+			// document.querySelector(".about1").classList.add("hidden");
+			// document.querySelector(".about2").classList.remove("hidden");
+			// document.querySelector(".about3").classList.add("hidden");
+			// document.querySelector(".about4").classList.add("hidden");
+			document.querySelector(".about1").style = "opacity: 0;";
+			document.querySelector(".about2").style = "opacity: 100;";
+			document.querySelector(".about3").style = "opacity: 0;";
+			document.querySelector(".about4").style = "opacity: 0;";
+		} else if (scale < breaks[2]) {
+			console.log(3);
+			// document.querySelector(".about1").classList.add("hidden");
+			// document.querySelector(".about2").classList.add("hidden");
+			// document.querySelector(".about3").classList.remove("hidden");
+			// document.querySelector(".about4").classList.add("hidden");
+			document.querySelector(".about1").style = "opacity: 0;";
+			document.querySelector(".about2").style = "opacity: 0;";
+			document.querySelector(".about3").style = "opacity: 100;";
+			document.querySelector(".about4").style = "opacity: 0;";
+		} else {
+			console.log(4);
+			// document.querySelector(".about1").classList.add("hidden");
+			// document.querySelector(".about2").classList.add("hidden");
+			// document.querySelector(".about3").classList.add("hidden");
+			// document.querySelector(".about4").classList.remove("hidden");
+			document.querySelector(".about1").style = "opacity: 0;";
+			document.querySelector(".about2").style = "opacity: 0;";
+			document.querySelector(".about3").style = "opacity: 0;";
+			document.querySelector(".about4").style = "opacity: 100;";
+		}
+	}
+	useEffect(() => {
+		// let angle = 45;
+		let angle = 135 / 20;
+		let rot = 67.5;
+		var elemWidth = document.querySelector(".ellipse").clientWidth;
+		console.log(elemWidth);
+		for (const letter of document.querySelectorAll(".arcText")) {
+			letter.style = `transform: rotate(${rot}deg) translate(0px, ${
+				elemWidth * 0.38
+			}px);`;
+			rot -= angle;
+			console.log(rot);
+		}
+	}, []);
+
+	let scale = 1;
+
+	const handleOnMoouseMove = (e) => {
+		const { currentTarget: target } = e;
+
+		const rect = target.getBoundingClientRect(),
+			x = e.clientX - rect.left,
+			y = e.clientY - rect.top;
+
+		target.style.setProperty("--mouse-x", `${x}px`);
+		target.style.setProperty("--mouse-y", `${y}px`);
+	};
+
+	for (const board of document.querySelectorAll(".board")) {
+		board.onmousemove = (e) => handleOnMoouseMove(e);
+	}
+
+	function myFunction() {
+		// console.log("SSSS");
+		// const aboutdiv = document.querySelector(".aboutdiv");
+		// aboutdiv.onwheel = scrolled;
+		// var leftOffset = document.getElementById("about").scrollLeft;
+		// console.log(leftOffset);
+		// const breaks = [380, 760, 1140];
+		// if (leftOffset < breaks[0]) {
+		// 	console.log(0);
+		// 	document.querySelector(".about1").classList.remove("hidden");
+		// } else if (leftOffset < breaks[1]) {
+		// 	document.querySelector(".about2").classList.remove("hidden");
+		// 	console.log(1);
+		// } else if (leftOffset < breaks[2]) {
+		// 	document.querySelector(".about3").classList.remove("hidden");
+		// 	console.log(2);
+		// } else {
+		// 	document.querySelector(".about4").classList.remove("hidden");
+		// 	console.log(3);
+		// }
+	}
+
+	return (
+		<div className="home h-screen" id="home">
+			<div className="w-full h-full relative flex justify-center overflow-x-hidden items-center -space-x-4">
+				<div className="ellipse w-3/12 h-4/5 flex flex-col justify-center items-center">
+					<div className="z-30 w-full h-full border-white board overflow-hidden rounded-full relative bg-black_bg text-white flex flex-col justify-center items-center hover:bg-grey_bg group">
+						<h1 className="font-Sawarabi_Mincho text-[40px] group-hover:text-[45px] transition-all duration-300">
+							Samarth M
+						</h1>
+						<h2 className="tracking-[.40em] group-hover:tracking-[.70em] font-thin pt-6 transition-all duration-200">
+							SOFTWARE
+						</h2>
+						<h2 className="tracking-[.40em] group-hover:tracking-[.70em] group-hover:pb-2 font-thin -mt-1 transition-all duration-200">
+							ENGINEER
+						</h2>
+						<div className="absolute bottom-[12.5rem] text-accent rounded-full">
+							<div className="relative flex">
+								<h3 className="arcText absolute">I</h3>
+								<h3 className="arcText absolute">{}</h3>
+								<h3 className="arcText absolute">l</h3>
+								<h3 className="arcText absolute">i</h3>
+								<h3 className="arcText absolute">k</h3>
+								<h3 className="arcText absolute">e</h3>
+								<h3 className="arcText absolute">{}</h3>
+								<h3 className="arcText absolute">t</h3>
+								<h3 className="arcText absolute">o</h3>
+								<h3 className="arcText absolute">{}</h3>
+								<h3 className="arcText absolute">b</h3>
+								<h3 className="arcText absolute">u</h3>
+								<h3 className="arcText absolute">i</h3>
+								<h3 className="arcText absolute">l</h3>
+								<h3 className="arcText absolute">d</h3>
+								<h3 className="arcText absolute">{}</h3>
+								<h3 className="arcText absolute">s</h3>
+								<h3 className="arcText absolute">t</h3>
+								<h3 className="arcText absolute">u</h3>
+								<h3 className="arcText absolute">f</h3>
+								<h3 className="arcText absolute">f</h3>
+							</div>
+						</div>
+					</div>
+					{/* <div className="light h-[300px] w-[400px] bg-gradient-to-t from-white to-white_trans absolute bottom-8 z-40"></div> */}
+				</div>
+				<div className=" w-3/12 h-4/5 flex flex-col justify-center items-center group">
+					<div className="z-20 w-full h-full grid place-content-end border-white overflow-hidden relative rounded-full bg-purple-pattern bg-[length:732px_753px] bg-no-repeat bg-top">
+						<div className="relative bottom-10">
+							<div className="rounded-b-full overflow-hidden transition-all duration-300">
+								<div className="bg-white aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-40"></div>
+								<img
+									src={require("./stock/meee.png")}
+									className="z-50 relative"
+									alt="me"
+								/>
+								<div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50"></div>
+								<div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50 rotate-[22.5deg]"></div>
+								<div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50 rotate-[-22.5deg]"></div>
+							</div>
+						</div>
+						{/* <div className="bg-white aspect-square w-40 rounded-full absolute bottom-10 translate-x-1/2">
+							<img
+								src={require("./stock/meee.png")}
+								className="absolute bottom-1"
+								alt="me"
+							/>
+						</div> */}
+					</div>
+				</div>
+				<div
+					className=" w-3/12 h-4/5 flex aboutdiv relative flex-col justify-center items-center overflow-x-auto overscroll-x-contain "
+					onClick={myFunction}
+					id={"about"}
+					onWheel={scrolled}
+				>
+					<div className="bg-black_bg h-20 w-[20.5rem] absolute overflow-x-scroll overscroll-x-contain"></div>
+					<div className="z-10 w-full h-full border-white board overflow-hidden relative rounded-full bg-black_bg text-white text-right px-8 py-20 hover:bg-grey_bg group">
+						<h1 className="font-Sawarabi_Mincho text-[40px] group-hover:text-[45px] group-hover:-mt-1 transition-all duration-300">
+							About
+						</h1>
+						<h1 className="font-Sawarabi_Mincho text-[40px] group-hover:text-[45px] group-hover:-mt-2 transition-all duration-300">
+							Me
+						</h1>
+						<p className="about1 absolute opacity-100 top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
+							I'm a software engineer based in Bangalore, India. I
+							have a great interest in full stack development,
+							gaming, youtube and BTS.
+						</p>
+						<p className="about2  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
+							I'm a Computer Science graduate and currently
+							working as a software engineer at Toshiba Software
+							Pvt. Ltd, Bangalore. I work everyday on Python and
+							C++.
+						</p>
+						<p className="about3  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
+							I have a great interest in web development, and have
+							completed an internship in full stack dev. I keep
+							myself busy with web dev projects.
+						</p>
+						<div className="about4  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
+							Here are some technologies I have been working with:
+							<div className="flex justify-end items-center pt-5">
+								<ul className="text-base font-light space-y-2 pr-2">
+									<li className="">HTML & CSS </li>
+									<li className="">Javascript ES6+</li>
+									<li className="">React.js</li>
+									<li className="">Node.js</li>
+									<li className="">Firebase</li>
+								</ul>
+								<ul className="flex flex-col justify-start items-start">
+									<li>
+										<FontAwesomeIcon
+											icon={faHtml5}
+											className="text-orange-500 h-7"
+										/>
+										<FontAwesomeIcon
+											icon={faCss3Alt}
+											className="text-blue-500 h-7 pl-1"
+										/>
+									</li>
+									<li>
+										<FontAwesomeIcon
+											icon={faJs}
+											className="text-yellow-300 h-7"
+										/>
+									</li>
+									<li>
+										<FontAwesomeIcon
+											icon={faReact}
+											className="text-sky-400 h-7"
+										/>
+									</li>
+									<li>
+										<FontAwesomeIcon
+											icon={faNodeJs}
+											className="text-lime-500 h-7"
+										/>
+									</li>
+									<li>
+										<img
+											src={
+												require("./stock/icons8-firebase-480.svg")
+													.default
+											}
+											alt="firebase_logo"
+											className="h-7"
+										/>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div className="scroll-indicator w-[4.5rem] h-8 absolute bottom-28 left-1/2 -translate-x-1/2 flex items-center opacity-0 group-hover:opacity-50 transition duration-300 px-3 border rounded-full">
+							<div className="scroll-dot h-2 aspect-square rounded-full bg-white"></div>
+						</div>
+						<div className="-z-10 absolute bottom-10 w-full flex justify-center left-1/2 -translate-x-1/2 group-hover:bg-transparent">
+							<div className="circle relative w-11/12 aspect-square bg-transparent rounded-full overflow-hidden group-hover:bg-transparent">
+								<div className="segment absolute w-full h-full top-2/3 bg-transparent group-hover:bg-transparent">
+									<div
+										className="h-full bg-accent"
+										id="progress"
+										style={{
+											width: Math.trunc(scale) / 2 + "%",
+										}}
+									></div>
+								</div>
+								<div className="innercircle w-[18em] aspect-square absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black_bg group-hover:bg-grey_bg rounded-full"></div>
+							</div>
+						</div>
+					</div>
+					{/* <div class="trapezoid absolute bottom-8 z-50"></div> */}
+				</div>
+			</div>
+			<div className="triangle"></div>
+		</div>
+	);
+}
+
+export default Home;
