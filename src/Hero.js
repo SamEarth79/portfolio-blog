@@ -6,7 +6,7 @@ import Projects from "./Projects";
 
 function Hero() {
 	return (
-		<div className="ml-nav_width scroll-smooth">
+		<div className="lg:ml-nav_width scroll-smooth ">
 			<Home></Home>
 			<Projects></Projects>
 			<Experience></Experience>

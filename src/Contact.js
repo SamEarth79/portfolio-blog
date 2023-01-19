@@ -9,11 +9,14 @@ function Contact() {
 	let [body, setBody] = useState("");
 
 	return (
-		<div className="h-screen flex justify-center items-center" id="contact">
-			<div className="h-5/6 w-10/12 flex justify-around items-center relative">
-				<div className="form flex flex-col gap-10 w-1/3">
+		<div
+			className="lg:h-screen max-sm:mt-20 flex max-sm:flex-col justify-center items-center"
+			id="contact"
+		>
+			<div className="h-5/6 w-10/12 flex max-sm:flex-col max-sm:gap-8 justify-around items-center relative">
+				<div className="form flex flex-col gap-10 lg:w-1/3">
 					<h1 className="text-white font-Sawarabi_Mincho text-4xl">
-						Drop an email
+						Like what you see? drop an email.
 					</h1>
 					<input
 						type="text"
@@ -61,27 +64,27 @@ function Contact() {
 						Send
 					</button>
 				</div>
-				<div className="links flex flex-col gap-8">
+				<div className="links flex flex-col p-6  gap-8">
 					<div className="flex gap-4 items-center text-white">
 						<FontAwesomeIcon
 							icon={faLinkedin}
-							className={"text-6xl"}
+							className={"text-6xl max-sm:text-4xl"}
 						/>
 						<p>/ samarthmm</p>
 					</div>
 					<div className="flex gap-4 items-center text-white">
 						<FontAwesomeIcon
 							icon={faGithub}
-							className={"text-6xl"}
+							className={"text-6xl max-sm:text-4xl"}
 						/>
 						<p>/ SamEarth79</p>
 					</div>
 					<div className="flex gap-4 items-center text-white">
 						<FontAwesomeIcon
 							icon={faEnvelope}
-							className={"text-6xl"}
+							className={"text-6xl max-sm:text-4xl"}
 						/>
-						<p>/ samarthmm.work@gmail.com</p>
+						<p className="break-all">/ samarthmm.work@gmail.com</p>
 					</div>
 				</div>
 			</div>

@@ -15,47 +15,6 @@ html {
 	scroll-behavior: smooth;
 }
 
-.hidd {
-	display: none;
-}
-
-.disp {
-	display: block;
-}
-.arc {
-	width: 200px;
-	height: 100px;
-	border-radius: 100px/50px;
-	background-color: blue;
-	overflow: hidden;
-}
-
-.board {
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	position: relative;
-}
-
-.board:hover::before {
-	opacity: 1;
-}
-
-.board::before {
-	background: radial-gradient(
-		600px circle at var(--mouse-x) var(--mouse-y),
-		rgba(255, 255, 255, 0.06),
-		transparent 40%
-	);
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 60;
-	opacity: 0;
-	transition: opacity 500ms;
-}
-
 .scroll-dot {
 	animation: bounce-anim 1s ease-in-out infinite;
 }

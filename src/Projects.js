@@ -15,10 +15,10 @@ function Projects() {
 	return (
 		<div
 			id="projects"
-			className="projects h-screen w-full flex flex-col justify-center"
+			className="projects max-sm:mt-20 h-screen w-full flex flex-col justify-center max-w-screen-2xl"
 		>
-			<div className="container bg-purple-pattern h-4/6 py-4 w-full flex justify-around">
-				<div className="h-full basis-1/4 flex flex-col border p-2 text-white bg-black_bg group">
+			<div className="container bg-purple-pattern h-4/6 p-4 w-full flex lg:justify-around max-sm:gap-10 overflow-x-scroll">
+				<div className="h-full lg:basis-1/4 max-sm:min-w-[16rem] flex flex-col border p-2 text-white bg-black_bg group">
 					<div className="h-1/2 group-hover:h-1/3 flex flex-col justify-end transition-all duration-300">
 						<p className="text-gray-500 text-7xl">01</p>
 						<h1 className="font-Sawarabi_Mincho text-3xl">
@@ -79,7 +79,7 @@ function Projects() {
 						</div>
 					</div>
 				</div>
-				<div className="h-full basis-1/4 flex flex-col border p-2 text-white bg-black_bg group">
+				<div className="h-full lg:basis-1/4 max-sm:min-w-[16rem] flex flex-col border p-2 text-white bg-black_bg group">
 					<div className="h-1/2 group-hover:h-1/3 flex flex-col justify-end transition-all duration-300">
 						<p className="text-gray-500 text-7xl">01</p>
 						<h1 className="font-Sawarabi_Mincho text-3xl">
@@ -120,7 +120,7 @@ function Projects() {
 						</div>
 					</div>
 				</div>
-				<div className="h-full basis-1/4 flex flex-col border p-2 text-white bg-black_bg group">
+				<div className="h-full lg:basis-1/4 max-sm:min-w-[16rem] flex flex-col border p-2 text-white bg-black_bg group">
 					<div className="h-1/2 group-hover:h-1/3 flex flex-col justify-end transition-all duration-300">
 						<p className="text-gray-500 text-7xl">01</p>
 						<h1 className="font-Sawarabi_Mincho text-3xl">
