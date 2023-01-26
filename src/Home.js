@@ -7,6 +7,8 @@ import {
 	faNodeJs,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { gsap, TweenMax } from "gsap";
+import { useRef } from "react";
 
 function Home() {
 	function scrolled(event) {
@@ -76,20 +78,8 @@ function Home() {
 			document.querySelector(".about4").style = "opacity: 100;";
 		}
 	}
-	useEffect(() => {
-		// let angle = 45;
-		let angle = 135 / 20;
-		let rot = 67.5;
-		var elemWidth = document.querySelector(".ellipse").clientWidth;
-		console.log(elemWidth);
-		for (const letter of document.querySelectorAll(".arcText")) {
-			letter.style = `transform: rotate(${rot}deg) translate(0px, ${
-				elemWidth * 0.38
-			}px);`;
-			rot -= angle;
-			console.log(rot);
-		}
-	}, []);
+
+	
 
 	let scale = 1;
 
@@ -132,10 +122,48 @@ function Home() {
 
 	let aboutNav = () => {};
 
+	let styleBuildStuff = () => {
+		// let angle = 45;
+		let angle = 135 / 20;
+		let rot = 67.5;
+		var elemWidth = document.querySelector(".ellipse").clientWidth;
+		console.log(elemWidth);
+		for (const letter of document.querySelectorAll(".arcText")) {
+			letter.style = `transform: rotate(${rot}deg) translate(0px, ${
+				elemWidth * 0.38
+			}px);`;
+			rot -= angle;
+			console.log(rot);
+		}
+	}
+
+	let ellipse1 = useRef(null);  
+	let gsapAnimations = () => {
+		let options1 = {
+			x: -100,
+			duration: 1
+		}
+		
+		let options2 = {
+			x: 100,
+			duration: 1
+		}
+		gsap.from(ellipse1, options1);
+		gsap.from(".ellipse-3", options2);
+	}
+
+	useEffect(() => {
+		styleBuildStuff();	
+		// gsapAnimations();
+	}, []);
+	
+
 	return (
 		<div className="home h-screen" id="home">
-			<div className="w-fit h-full mx-auto relative flex flex-col lg:flex-row lg:overflow-x-scroll overscroll-x-contain justify-center items-center lg:-space-x-4 max-sm:gap-5">
-				<div className="ellipse lg:w-[20rem] lg:h-[42rem]  w-11/12 h-fit flex flex-col justify-center items-center">
+			<div className="w-fit h-full mx-auto relative flex flex-col lg:flex-row lg:overflow-x-visible overscroll-x-contain justify-center items-center lg:-space-x-4 max-sm:gap-5">
+				<div 
+				ref={(el)=>{ellipse1 = el}}
+				className="ellipse ellipse-1 lg:w-[20rem] lg:h-[42rem]  w-11/12 h-fit flex flex-col justify-center items-center">
 					<div className="z-30 w-full h-full border-[0.8px] border-gray-400 board overflow-hidden rounded-full relative bg-black_bg text-white flex flex-col justify-center items-center hover:bg-grey_bg group">
 						<h1 className="font-Sawarabi_Mincho text-[40px] group-hover:text-[45px] transition-all duration-300 max-sm:p-5 max-md:p-5">
 							Samarth M
@@ -174,16 +202,16 @@ function Home() {
 					</div>
 					{/* <div className="light h-[300px] w-[400px] bg-gradient-to-t from-white to-white_trans absolute bottom-8 z-40"></div> */}
 				</div>
-				<div className=" lg:w-[20rem] lg:h-[42rem]  w-11/12 h-fit flex flex-col justify-center items-center group">
+				<div className="ellipse ellipse-2 lg:w-[20rem] lg:h-[42rem]  w-11/12 h-fit flex flex-col justify-center items-center group">
 					<div className="z-20 w-full h-full grid place-content-end border-[0.8px] border-gray-400 overflow-hidden relative rounded-full bg-purple-pattern bg-[length:732px_753px] bg-no-repeat bg-top">
 						<div className="relative bottom-10">
 							<div className="rounded-b-full overflow-hidden transition-all duration-300">
 								<div className="bg-white aspect-square rounded-full w-11/12 mx-auto absolute bottom-0 left-1/2 -translate-x-1/2 z-40"></div>
-								<img
+								{/* <img
 									src={require("./stock/meee.png")}
 									className="z-50 relative"
 									alt="me"
-								/>
+								/> */}
 								<div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50"></div>
 								<div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50 rotate-[22.5deg]"></div>
 								<div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50 rotate-[-22.5deg]"></div>
@@ -199,7 +227,7 @@ function Home() {
 					</div>
 				</div>
 				<div
-					className=" lg:w-[20rem] lg:h-[42rem]  w-11/12 h-fit flex aboutdiv relative flex-col justify-center items-center lg:overflow-x-auto overscroll-x-contain "
+					className="ellipse ellipse-3 lg:w-[20rem] lg:h-[42rem]  w-11/12 h-fit flex aboutdiv relative flex-col justify-center items-center lg:overflow-x-auto overscroll-x-contain "
 					onClick={myFunction}
 					id={"about"}
 					onWheel={scrolled}
