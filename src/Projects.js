@@ -1,25 +1,22 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect } from "react";
 import {
-	faHtml5,
-	faJs,
-	faSpotify,
-	faReact,
-	faNodeJs,
-	faCss3Alt,
-	faGithub,
+    faHtml5,
+    faJs,
+    faSpotify,
+    faReact,
+    faCss3Alt,
 } from "@fortawesome/free-brands-svg-icons";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import ProjectCard from "./ProjectCard";
+import gsap from "gsap";
 
 function Projects() {
-	return (
-		<div
-			id="projects"
-			className="projects max-sm:mt-20 h-screen w-full flex flex-col justify-center max-w-screen-2xl"
-		>
-			<div className="container bg-purple-pattern h-4/6 p-4 w-full flex lg:justify-around max-sm:gap-10 overflow-x-scroll">
-				<div className="h-full lg:basis-1/4 max-sm:min-w-[16rem] flex flex-col border p-2 text-white bg-black_bg group">
+    return (
+        <div
+            id="projects"
+            className="projects max-sm:mt-20 h-screen w-full flex flex-col justify-center max-w-screen-2xl"
+        >
+            <div className="container bg-purple-pattern h-4/6 p-4 w-full flex lg:justify-around max-sm:gap-10 overflow-x-scroll">
+                {/* <div className="h-full lg:basis-1/4 max-sm:min-w-[16rem] flex flex-col border p-2 text-white bg-black_bg group">
 					<div className="h-1/2 group-hover:h-1/3 flex flex-col justify-end transition-all duration-300">
 						<p className="text-gray-500 text-7xl group-hover:text-8xl group-hover:text-white transition-all duration-300">01</p>
 						<h1 className="font-Sawarabi_Mincho text-3xl">
@@ -81,7 +78,7 @@ function Projects() {
 							/></a>
 						</div>
 					</div>
-				</div>
+				</div> 
 				<div className="h-full lg:basis-1/4 max-sm:min-w-[16rem] flex flex-col border p-2 text-white bg-black_bg group">
 					<div className="h-1/2 group-hover:h-1/3 flex flex-col justify-end transition-all duration-300">
 						<p className="text-gray-500 text-7xl">01</p>
@@ -163,11 +160,50 @@ function Projects() {
 							/>
 						</div>
 					</div>
-				</div>
-				<ProjectCard title={"blog"}></ProjectCard>
-			</div>
-		</div>
-	);
+				</div> */}
+                <ProjectCard
+                    className="card1"
+                    id="01"
+                    title="circlefy"
+                    tech={[
+                        [faHtml5, "HTML", "text-orange-500"],
+                        [faCss3Alt, "CSS", "text-blue-500"],
+                        [faJs, "JS", "text-yellow-300"],
+                        [faSpotify, "Spotify URL", "text-green-500"],
+                    ]}
+                    desc="Circlefy is a tool that lets user show off their top spotify artists. Circlefy uses the spotify API as it's backend to get user's data after OAuth authentication and authorization."
+                    weblink="https://circlefy.onrender.com/"
+                    githublink="https://github.com/SamEarth79/circlefy"
+                />
+                <ProjectCard
+                    id="02"
+                    title="Vogue Salon"
+                    tech={[
+                        [faHtml5, "HTML", "text-orange-500"],
+                        [faCss3Alt, "CSS", "text-blue-500"],
+                        [faReact, "React.js", "text-sky-500"],
+                        [null, "Redux", "text-sky-500", "redux"],
+                        [null, "Firebase", "text-sky-500", "firebase"],
+                    ]}
+                    desc="Vogue Salon is a web app that assists you to track and manage appointments. It allows you to perform CRUD operations on appointments made by you or created remotely by any customer."
+                    weblink="https://vouge-salon.web.app/"
+                    githublink="https://github.com/SamEarth79/vogue-salon"
+                />
+                <ProjectCard
+                    id="03"
+                    title="portfolio"
+                    tech={[
+                        [faHtml5, "HTML", "text-orange-500"],
+                        [faCss3Alt, "CSS", "text-blue-500"],
+                        [faReact, "React.js", "text-sky-500"],
+                    ]}
+                    desc="This is my personal website which I have used to showcase my skills, projects and experience. I have built this using ReactJS framework. The animations have been incorporated using GreenSap Animations Platform (GSAP)"
+                    weblink="https://circlefy.onrender.com/"
+                    githublink="https://github.com/SamEarth79/portfolio-blog"
+                />
+            </div>
+        </div>
+    );
 }
 
 export default Projects;

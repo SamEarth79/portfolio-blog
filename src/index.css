@@ -6,31 +6,58 @@
 @tailwind utilities;
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-	scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 .scroll-dot {
-	animation: bounce-anim 1s ease-in-out infinite;
+    animation: bounce-anim 1s ease-in-out infinite;
 }
 
 @keyframes bounce-anim {
-	0% {
-		transform: translate(0, 0);
-		opacity: 0;
-	}
-	20%,
-	70% {
-		opacity: 1;
-	}
-	90%,
-	100% {
-		transform: translate(150%, 0);
-		opacity: 0;
-	}
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    20%,
+    70% {
+        opacity: 1;
+    }
+    90%,
+    100% {
+        transform: translate(150%, 0);
+        opacity: 0;
+    }
+}
+
+@keyframes underline-anim {
+    0% {
+        width: 0em;
+    }
+    100% {
+        width: 8em;
+    }
+}
+
+.expCard {
+    position: relative;
+}
+
+.expCard::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: radial-gradient(
+        600px circle at 10px 10px,
+        rgba(255, 255, 255, 0.06),
+        transparent 90%
+    );
+    height: 100%;
+    width: 100%;
 }
