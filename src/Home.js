@@ -137,6 +137,7 @@ function Home() {
 
     let ellipse1 = useRef(null);
     let ellipse3 = useRef(null);
+    let purplebg = useRef(null);
 
     let gsapAnimations = () => {
         gsap.fromTo(
@@ -149,6 +150,8 @@ function Home() {
             { x: 200, ease: "expo" },
             { x: 0, ease: "expo", duration: 2 }
         );
+
+        // gsap.fromTo(purplebg, { x: 0 }, { x: -100, duration: 1 });
     };
 
     useEffect(() => {
@@ -204,7 +207,12 @@ function Home() {
                     {/* <div className="light h-[300px] w-[400px] bg-gradient-to-t from-white to-white_trans absolute bottom-8 z-40"></div> */}
                 </div>
                 <div className="ellipse ellipse-2 lg:w-[20rem] lg:h-[42rem]  w-11/12 h-fit flex flex-col justify-center items-center group">
-                    <div className="z-20 w-full h-full grid place-content-end border-[0.8px] border-gray-400 overflow-hidden relative rounded-full bg-purple-pattern bg-[length:732px_753px] bg-no-repeat bg-top">
+                    <div
+                        ref={(el) => {
+                            purplebg = el;
+                        }}
+                        className="purplebg z-20 w-full h-full grid place-content-end border-[0.8px] border-gray-400 overflow-hidden relative rounded-full bg-purple-pattern bg-[length:732px_753px] bg-no-repeat bg-[center_top_0rem]"
+                    >
                         <div className="relative bottom-10">
                             <div className="rounded-b-full overflow-hidden transition-all duration-300">
                                 <div className="bg-white aspect-square rounded-full w-11/12 mx-auto absolute bottom-0 left-1/2 -translate-x-1/2 z-40"></div>
