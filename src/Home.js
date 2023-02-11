@@ -160,7 +160,7 @@ function Home() {
     }, []);
 
     return (
-        <div className="home h-screen" id="home">
+        <div className="home lg:h-screen max-sm: py-40" id="home">
             <div className="w-fit h-full mx-auto relative flex flex-col lg:flex-row lg:overflow-x-visible overscroll-x-contain justify-center items-center lg:-space-x-4 max-sm:gap-5">
                 <div
                     ref={(el) => {
@@ -216,11 +216,11 @@ function Home() {
                         <div className="relative bottom-10">
                             <div className="rounded-b-full overflow-hidden transition-all duration-300">
                                 <div className="bg-white aspect-square rounded-full w-11/12 mx-auto absolute bottom-0 left-1/2 -translate-x-1/2 z-40"></div>
-                                {/* <img
-                                    src={require("./stock/meeeeeeeee.png")}
-                                    className="z-50 relative"
+                                <img
+                                    src={require("./stock/meeee-removebg.png")}
+                                    className="z-50 pt-20 relative"
                                     alt="me"
-                                /> */}
+                                />
                                 <div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50"></div>
                                 <div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50 rotate-[22.5deg]"></div>
                                 <div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50 rotate-[-22.5deg]"></div>

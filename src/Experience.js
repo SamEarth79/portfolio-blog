@@ -134,7 +134,7 @@ function Experience() {
                                 </p>
                             </div>
                             <div className="flex flex-col gap-2 transition-all duration-300">
-                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 group-hover:after:w-[8em] after:transition-all after:duration-1000">
+                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[8em] after:transition-all after:duration-1000">
                                     My Smart Shala
                                 </h1>
                                 <p className="font-light">
@@ -145,7 +145,7 @@ function Experience() {
                             <div className="exp1Container flex flex-col lg:h-3/4 lg:justify-around">
                                 <div className="flex flex-col gap-px techstack1">
                                     <p className="font-light">TECH STACK</p>
-                                    <p className="font-bold">
+                                    <p className="font-bold pr-10">
                                         React.js, Python, HTML/CSS, npm
                                     </p>
                                 </div>
@@ -210,7 +210,7 @@ function Experience() {
                                 </p>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 group-hover:after:w-[13em] after:transition-all after:duration-1000">
+                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[13em] after:transition-all after:duration-1000">
                                     Toshiba Software Pvt. Ltd.
                                 </h1>
                                 <p className="font-light">Software Engineer</p>
@@ -219,7 +219,7 @@ function Experience() {
                             <div className="exp1Container flex flex-col lg:h-3/4 lg:justify-around">
                                 <div className="flex flex-col gap-px techstack2">
                                     <p className="font-light">TECH STACK</p>
-                                    <p className="font-bold">
+                                    <p className="font-bold pr-10">
                                         Python, REST API, C++, Google test
                                         framework
                                     </p>

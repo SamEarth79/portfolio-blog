@@ -169,7 +169,7 @@ function Projects() {
                         [faHtml5, "HTML", "text-orange-500"],
                         [faCss3Alt, "CSS", "text-blue-500"],
                         [faJs, "JS", "text-yellow-300"],
-                        [faSpotify, "Spotify URL", "text-green-500"],
+                        [faSpotify, "Spotify API", "text-green-500"],
                     ]}
                     desc="Circlefy is a tool that lets user show off their top spotify artists. Circlefy uses the spotify API as it's backend to get user's data after OAuth authentication and authorization."
                     weblink="https://circlefy.onrender.com/"
