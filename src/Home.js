@@ -375,6 +375,7 @@ function Home() {
                 </div>
             </div>
             <div className="triangle"></div>
+            <p>Currently, I'm learning NodeJs</p>
         </div>
     );
 }
