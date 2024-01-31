@@ -261,15 +261,14 @@ function Home() {
                             Me
                         </h1>
                         <p className="max-sm:hidden about1 absolute opacity-100 top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
-                            I'm a software engineer based in Bangalore, India. I
-                            have a great interest in full stack development,
+                            I'm a full stack software engineer based in Bangalore, India. I
+                            have a great interest in web development,
                             gaming, youtube and BTS.
                         </p>
                         <p className="max-sm:hidden about2  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
                             I'm a Computer Science graduate and currently
-                            working as a software engineer at Toshiba Software
-                            Pvt. Ltd, Bangalore. I work everyday on Python and
-                            C++.
+                            working as a software engineer at Lion Circuits, Bangalore. I work everyday on ReactJS and
+                            Django.
                         </p>
                         <p className="max-sm:hidden about3  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
                             I have a great interest in web development, and have

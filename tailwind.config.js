@@ -23,7 +23,7 @@ module.exports = {
 				arc_innercircle: "90%",
 			},
 			backgroundImage: {
-				"purple-pattern": "url('/public/purple_liquid.jpeg')",
+				"purple-pattern": "url('https://raw.githubusercontent.com/SamEarth79/portfolio-blog/main/public/purple_liquid.jpeg')",
 				meeeee: "url('/public/meee.png')",
 			},
 		},
