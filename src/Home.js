@@ -1,16 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
     faHtml5,
     faCss3Alt,
     faJs,
     faReact,
     faNodeJs,
+    faLinkedin,
+    faLinkedinIn,
+    faGithub,
+    faAws,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { gsap } from "gsap";
 import { useRef } from "react";
+import { faAngleLeft, faAngleRight, faEnvelope, faGlassMartiniAlt, faMailBulk, faMailForward } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
+
     function scrolled(event) {
         // alert("scrolled");
 
@@ -30,11 +36,6 @@ function Home() {
             scrollSegment * 4,
         ];
 
-        if (scale > scrollSegment) {
-            const scroll_ind = document.querySelector(".scroll-indicator");
-            scroll_ind.style = "opacity: 0";
-        }
-        // console.log(scale);
 
         if (scale < breaks[0]) {
             console.log(1);
@@ -173,11 +174,28 @@ function Home() {
                             Samarth M
                         </h1>
                         <h2 className="tracking-[.40em] group-hover:tracking-[.70em] font-thin pt-6 transition-all duration-200 max-sm:pt-5 max-md:pt-5">
-                            SOFTWARE
+                            FULL-STACK
                         </h2>
                         <h2 className="tracking-[.40em] group-hover:tracking-[.70em] group-hover:pb-2 font-thin -mt-1 transition-all duration-200 max-sm:pb-5 max-md:pb-5">
-                            ENGINEER
+                            DEVELOPER
                         </h2>
+                        <div className="my-10 flex items-center gap-2">
+                            <FontAwesomeIcon 
+                                icon={faLinkedin}
+                                className="h-6 text-blue-500 cursor-pointer p-2 group-hover:h-10 transition-all duration-300"
+                                onClick={() => window.open("https://www.linkedin.com/in/samarth-m-16620416b/", "_blank")}
+                            />
+                            <FontAwesomeIcon 
+                                icon={faGithub}
+                                className="h-6 text-white cursor-pointer p-2 group-hover:h-10 transition-all duration-300"
+                                onClick={() => window.open("https://github.com/SamEarth79", "_blank")}
+                            />
+                            <FontAwesomeIcon 
+                                icon={faEnvelope}
+                                className="h-6 text-white cursor-pointer p-2 group-hover:h-10 transition-all duration-300"
+                                onClick={() => window.open("mailto:samarthmm.work@gmail.com", "_blank")}
+                            />
+                        </div>
                         <div className="absolute bottom-[12.5rem] text-accent rounded-full max-sm:hidden max-md:hidden">
                             <div className="relative flex">
                                 <h3 className="arcText absolute">I</h3>
@@ -267,26 +285,24 @@ function Home() {
                         </p>
                         <p className="max-sm:hidden about2  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
                             I'm a Computer Science graduate and currently
-                            working as a software engineer at Lion Circuits, Bangalore. I work everyday on ReactJS and
-                            Django.
+                            working as a lead web developer at Lion Circuits, Bangalore. I work everyday on ReactJS, 
+                            Django and NextJS.
                         </p>
                         <p className="max-sm:hidden about3  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
                             I have a great interest in web development, and have
-                            completed an internship in full stack dev. I keep
+                            completed an internship and multiple projects. I keep
                             myself busy with web dev projects.
                         </p>
                         <div className="max-sm:hidden about4  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
                             Here are some technologies I have been working with:
-                            <div className="flex justify-end items-center pt-5">
-                                <ul className="text-base font-light space-y-2 pr-2">
-                                    <li className="">HTML & CSS </li>
-                                    <li className="">Javascript ES6+</li>
-                                    <li className="">React.js</li>
-                                    <li className="">Node.js</li>
-                                    <li className="">Firebase</li>
-                                </ul>
-                                <ul className="flex flex-col justify-start items-start">
-                                    <li>
+                            <div className="grid list-none grid-flow-col grid-rows-6 mt-4">
+                                    <div className="text-right mr-2">HTML & CSS </div>
+                                    <div className="text-right mr-2">Javascript ES6+</div>
+                                    <div className="text-right mr-2">React.js</div>
+                                    <div className="text-right mr-2">Next.js</div>
+                                    <div className="text-right mr-2">Django</div>
+                                    <div className="text-right mr-2">AWS</div>
+                                    <div className="text-left">
                                         <FontAwesomeIcon
                                             icon={faHtml5}
                                             className="text-orange-500 h-7"
@@ -295,40 +311,57 @@ function Home() {
                                             icon={faCss3Alt}
                                             className="text-blue-500 h-7 pl-1"
                                         />
-                                    </li>
-                                    <li>
+                                    </div>
+                                    <div className="text-left">
                                         <FontAwesomeIcon
                                             icon={faJs}
                                             className="text-yellow-300 h-7"
                                         />
-                                    </li>
-                                    <li>
+                                    </div>
+                                    <div className="text-left">
                                         <FontAwesomeIcon
                                             icon={faReact}
                                             className="text-sky-400 h-7"
                                         />
-                                    </li>
-                                    <li>
-                                        <FontAwesomeIcon
-                                            icon={faNodeJs}
-                                            className="text-lime-500 h-7"
-                                        />
-                                    </li>
-                                    <li>
-                                        <img
+                                    </div>
+                                            <img
                                             src={
-                                                require("./stock/icons8-firebase-480.svg")
+                                                require("./stock/icons8-next.js.svg")
                                                     .default
                                             }
                                             alt="firebase_logo"
                                             className="h-7"
                                         />
-                                    </li>
-                                </ul>
+                                        <img
+                                            src={
+                                                require("./stock/icons8-django.svg")
+                                                    .default
+                                            }
+                                            alt="firebase_logo"
+                                            className="h-7"
+                                        />
+                                    <div className="text-left">
+                                        <FontAwesomeIcon
+                                            icon={faAws}
+                                            className="text-sky-400 h-7"
+                                        />
+                                    </div>
                             </div>
                         </div>
-                        <div className="max-sm:hidden scroll-indicator w-[4.5rem] h-8 absolute bottom-28 left-1/2 -translate-x-1/2 flex items-center opacity-0 group-hover:opacity-50 transition duration-300 px-3 border rounded-full">
+                        {/* <div className="max-sm:hidden scroll-indicator w-[4.5rem] h-8 absolute bottom-28 left-1/2 -translate-x-1/2 flex items-center opacity-0 group-hover:opacity-50 transition duration-300 px-3 border rounded-full">
                             <div className="scroll-dot h-2 aspect-square rounded-full bg-white"></div>
+                        </div> */}
+                        <div className="max-sm:hidden scroll-indicator w-[4.5rem] h-8 absolute bottom-28 left-1/2 -translate-x-2/3 flex gap-4 items-center transition duration-300 px-3">
+                            <FontAwesomeIcon
+                                icon={faAngleLeft}
+                                className="text-white h-7 cursor-pointer p-2"
+                                onClick={() => {scale -= 50; scrolled({deltaX: -50})}}
+                            />
+                            <FontAwesomeIcon
+                                icon={faAngleRight}
+                                className="text-white h-7 cursor-pointer p-2"
+                                onClick={() => {scale += 50; scrolled({deltaX: 50})}}
+                            />
                         </div>
                         <div className="max-sm:hidden -z-10 absolute bottom-10 w-full flex justify-center left-1/2 -translate-x-1/2 group-hover:bg-transparent">
                             <div className="circle relative w-11/12 aspect-square bg-transparent rounded-full overflow-hidden group-hover:bg-transparent">
@@ -374,7 +407,6 @@ function Home() {
                 </div>
             </div>
             <div className="triangle"></div>
-            <p>Currently, I'm learning NodeJs</p>
         </div>
     );
 }

@@ -164,16 +164,17 @@ function Projects() {
                 <ProjectCard
                     className="card1"
                     id="01"
-                    title="circlefy"
+                    title="Matching Beats"
                     tech={[
                         [faHtml5, "HTML", "text-orange-500"],
                         [faCss3Alt, "CSS", "text-blue-500"],
-                        [faJs, "JS", "text-yellow-300"],
+                        [null, "NextJS", "text-blue-500", "nextjs"],
+                        [null, "MongoDB", "text-blue-500", "mongodb"],
                         [faSpotify, "Spotify API", "text-green-500"],
                     ]}
-                    desc="Circlefy is a tool that lets user show off their top spotify artists. Circlefy uses the spotify API as it's backend to get user's data after OAuth authentication and authorization."
-                    weblink="https://circlefy.onrender.com/"
-                    githublink="https://github.com/SamEarth79/circlefy"
+                    desc="Matching Beats is a web app where 2 users can get a percentage match of their music taste by scanning QR codes. It uses the Spotify API for data and MongoDB as it's backend to get user's data after OAuth authentication and authorization."
+                    weblink="https://main.d100dmsfe3uycb.amplifyapp.com/"
+                    githublink="https://github.com/SamEarth79/spotifinder"
                 />
                 <ProjectCard
                     id="02"

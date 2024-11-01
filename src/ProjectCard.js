@@ -73,6 +73,36 @@ const ProjectCard = (props) => {
                                     </p>
                                 </div>
                             );
+                        } else if(tech[3] === "nextjs") {
+                            return (
+                                <div className="flex flex-col group-hover:px-px">
+                                    <img
+                                        src={
+                                            require("./stock/icons8-next.js.svg").default
+                                        }
+                                        alt="firebase_logo"
+                                        className="h-6 my-2 mb-3 mx-1"
+                                    />
+                                    <p className="bg-gray-600 p-1 rounded-md text-xs hidden group-hover:block text-center">
+                                        {tech[1]}
+                                    </p>
+                                </div>
+                            )
+                        } else if(tech[3] === "mongodb") {
+                            return (
+                                <div className="flex flex-col group-hover:px-px">
+                                    <img
+                                        src={
+                                            require("./stock/mongodb-svgrepo-com.svg").default
+                                        }
+                                        alt="firebase_logo"
+                                        className="h-6 my-2 mb-3 mx-1"
+                                    />
+                                    <p className="bg-gray-600 p-1 rounded-md text-xs hidden group-hover:block text-center">
+                                        {tech[1]}
+                                    </p>
+                                </div>
+                            )
                         } else {
                             return (
                                 <div className="flex flex-col group-hover:px-px">
