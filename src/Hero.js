@@ -9,6 +9,7 @@ function Hero() {
 		<div className="lg:ml-nav_width scroll-smooth ">
 			<Home></Home>
 			<Projects></Projects>
+			<h1 className="text-white text-5xl p-5 font-medium -mb-24 mt-10 text-center">Experience</h1>
 			<Experience></Experience>
 			<Contact></Contact>
 		</div>

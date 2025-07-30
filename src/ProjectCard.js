@@ -31,7 +31,7 @@ const ProjectCard = (props) => {
     return (
         <div
             ref={(el) => (card = el)}
-            className="h-full lg:w-1/4 max-sm:min-w-[16rem] flex flex-col border p-2 text-white bg-black_bg group"
+            className="h-full lg:w-[24%] max-sm:min-w-[16rem] flex flex-col border p-2 text-white bg-black_bg group"
         >
             <div className="h-1/2 group-hover:h-1/3 flex flex-col justify-end transition-all duration-300">
                 <p className="text-gray-500 text-7xl group-hover:text-8xl group-hover:text-white transition-all ease-in duration-300">
@@ -103,6 +103,21 @@ const ProjectCard = (props) => {
                                     </p>
                                 </div>
                             )
+                        } else if(tech[3] === "supabase") {
+                            return (
+                                <div className="flex flex-col group-hover:px-px">
+                                    <img
+                                        src={
+                                            require("./stock/supabase-logo-icon.png")
+                                        }
+                                        alt="firebase_logo"
+                                        className="h-6 my-2 mb-3 mx-1 object-contain"
+                                    />
+                                    <p className="bg-gray-600 p-1 rounded-md text-xs hidden group-hover:block text-center">
+                                        {tech[1]}
+                                    </p>
+                                </div>
+                            )
                         } else {
                             return (
                                 <div className="flex flex-col group-hover:px-px">
@@ -124,7 +139,7 @@ const ProjectCard = (props) => {
                     {props.desc}
                 </div>
                 <div className="links flex w-full justify-end absolute bottom-0">
-                    <a
+                    {props.weblink && <a
                         href={`${props.weblink}`}
                         target="_blank"
                         rel="noreferrer"
@@ -133,8 +148,8 @@ const ProjectCard = (props) => {
                             icon={faArrowUpRightFromSquare}
                             className="text-gray-400 h-7 py-1 px-1"
                         />
-                    </a>
-                    <a
+                    </a>}
+                    {props.githublink && <a
                         href={`${props.githublink}`}
                         target="_blank"
                         rel="noreferrer"
@@ -143,7 +158,7 @@ const ProjectCard = (props) => {
                             icon={faGithub}
                             className="text-gray-400 h-7 py-1 px-1"
                         />
-                    </a>
+                    </a>}
                 </div>
             </div>
         </div>

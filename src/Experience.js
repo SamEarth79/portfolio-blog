@@ -38,6 +38,8 @@ let displayDes0 = () => {
     expDes2.style = "display: hidden";
     let expDes3 = document.querySelector(".expDes3");
     expDes3.style = "display: hidden";
+    let expDes4 = document.querySelector(".expDes4");
+    expDes4.style = "display: hidden";
 };
 
 let adjustHeights1 = () => {
@@ -67,6 +69,15 @@ let adjustHeights3 = () => {
     }
 };
 
+let adjustHeights4 = () => {
+    if (!isMobile.matches) {
+        console.log("adjust1");
+        let exp1 = document.querySelector(".exp4");
+        exp1.style = "height: 75%";
+        displayDes(".expDes4");
+    }
+};
+
 
 
 let adjustHeights0 = () => {
@@ -78,6 +89,8 @@ let adjustHeights0 = () => {
         exp2.style = "height: 50%";
         let exp3 = document.querySelector(".exp3");
         exp3.style = "height: 50%";
+        let exp4 = document.querySelector(".exp4");
+        exp4.style = "height: 50%";
         let techstack1 = document.querySelector(".techstack1");
         techstack1.style = "display: block";
         displayDes0();
@@ -107,13 +120,54 @@ let toggleExperience2 = () => {
 function Experience() {
     return (
         <div
-            className="lg:h-screen min-h-fit w-full flex justify-center items-center text-white mb-40"
+            className="lg:h-screen min-h-fit w-full flex justify-center items-center text-white mb-[30em]"
             id="experience"
         >
             <div
                 className="w-10/12 lg:h-4/6 relative flex flex-col max-sm:gap-10"
                 onMouseOut={adjustHeights0}
             >
+                <div
+                    className="exp4 lg:h-1/2 w-full flex flex-col gap-10 group transition-all ease-out duration-500"
+                    onMouseOver={adjustHeights4}
+                >
+                    <div className="expCard group w-full max-sm:w-full h-full min-h-fit relative bg-grey_bg border rounded-xl group-hover:w-full transition-all ease-out duration-500 py-4 pb-10 px-2 flex flex-col justify-start lg:justify-between">
+                        <div className="">
+                            <div className="flex flex-col gap-2 transition-all duration-300">
+                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[6em] after:transition-all after:duration-1000">
+                                    The Boston Consulting Group
+                                </h1>
+                                <p className="font-light">
+                                    Dev-Ops Full Stack Web Developer
+                                </p>
+                            </div>
+                            <p className="mt-4">June 2023 - Present</p>
+                            <div className="exp1Container flex flex-col lg:h-3/4 lg:justify-around">
+                                <div className="flex flex-col gap-px techstack1">
+                                    <p className="font-light">TECH STACK</p>
+                                    <p className="font-bold pr-10">
+                                        ReactJS, Django, AWS, Docker, Github Actions
+                                    </p>
+                                </div>
+                                <div className="expDes4 hidden">
+                                    <ul className="list-disc ml-4">
+                                        <li className="mb-2 expDes1Item">
+                                        Developed scalable B2B web applications for international clients that enabled tailored business
+solutions, improved product planning, and streamlined communication, using Django, React, AWS,
+and close collaboration with international stakeholders.
+                                        </li>
+                                        <li className="mb-2 expDes1Item">
+                                        Developed end-to-end DevOps workflows that automated testing and deployment, ensured reliable
+production environments, and improved release cycles, using GitHub Actions, Docker, Nginx, and
+AWS
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="max-sm:hidden w-1/2 h-full group-hover:w-0 transition-all ease-out duration-500"></div>
+                </div>
                 <div
                     className="exp1 lg:h-1/2 w-full flex flex-col gap-10 group transition-all ease-out duration-500"
                     onMouseOver={adjustHeights1}
@@ -142,6 +196,11 @@ function Experience() {
                                         Leading the software development CI/CD pipeline, building fast paced and massive user group based
 features for customers and internal website for the organisation authoring 200+ Pull Requests and
 reviews.
+                                        </li>
+                                        <li className="mb-2 expDes1Item">
+                                        Developed a Retrieval-Augmented Generation (RAG) AI assistant that enabled intelligent
+querying over 100,000+ electronic components and internal company documentation by building a
+custom vector database with contextual awareness integrated with AWS Bedrock
                                         </li>
                                         <li className="mb-2 expDes1Item">
                                         Implemented major features such as Cart System, Payments, Finances (invoices) using industry level

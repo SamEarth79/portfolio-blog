@@ -15,6 +15,7 @@ function Projects() {
             id="projects"
             className="projects max-sm:mt-20 h-screen w-full flex flex-col justify-center max-w-screen-2xl"
         >
+			<h1 className="text-white text-5xl p-5 font-medium text-center mb-10">Projects</h1>
             <div className="container bg-purple-pattern h-4/6 p-4 w-full flex lg:justify-around max-sm:gap-10 overflow-x-scroll">
                 {/* <div className="h-full lg:basis-1/4 max-sm:min-w-[16rem] flex flex-col border p-2 text-white bg-black_bg group">
 					<div className="h-1/2 group-hover:h-1/3 flex flex-col justify-end transition-all duration-300">
@@ -164,6 +165,19 @@ function Projects() {
                 <ProjectCard
                     className="card1"
                     id="01"
+                    title="trvl"
+                    tech={[
+                        [faReact, "React Native", "text-blue-500"],
+						[null, "Firebase", "text-sky-500", "firebase"],
+                        [null, "Supabase", "text-blue-500", "supabase"],
+                    ]}
+                    desc="An in-development app that allows users to handle the details part of their trips including itinerary, splitting expenses and essential documents and information. Used supabase for database and firebase for authentication."
+                    // weblink="https://main.d100dmsfe3uycb.amplifyapp.com/"
+                    // githublink="https://github.com/SamEarth79/spotifinder"
+                />
+                <ProjectCard
+                    className="card1"
+                    id="02"
                     title="Matching Beats"
                     tech={[
                         [faHtml5, "HTML", "text-orange-500"],
@@ -172,12 +186,12 @@ function Projects() {
                         [null, "MongoDB", "text-blue-500", "mongodb"],
                         [faSpotify, "Spotify API", "text-green-500"],
                     ]}
-                    desc="Matching Beats is a web app where 2 users can get a percentage match of their music taste by scanning QR codes. It uses the Spotify API for data and MongoDB as it's backend to get user's data after OAuth authentication and authorization."
+                    desc="Matching Beats is a Spotify-Certified web app where 2 users can get a percentage match of their music taste by scanning QR codes. It uses the Spotify API for data and MongoDB as it's backend to get user's data after OAuth authentication and authorization."
                     weblink="https://main.d100dmsfe3uycb.amplifyapp.com/"
                     githublink="https://github.com/SamEarth79/spotifinder"
                 />
                 <ProjectCard
-                    id="02"
+                    id="03"
                     title="Vogue Salon"
                     tech={[
                         [faHtml5, "HTML", "text-orange-500"],
@@ -191,7 +205,7 @@ function Projects() {
                     githublink="https://github.com/SamEarth79/vogue-salon"
                 />
                 <ProjectCard
-                    id="03"
+                    id="04"
                     title="portfolio"
                     tech={[
                         [faHtml5, "HTML", "text-orange-500"],
