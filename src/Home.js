@@ -229,12 +229,12 @@ function Home() {
                         ref={(el) => {
                             purplebg = el;
                         }}
-                        className="purplebg z-20 w-full h-full grid place-content-center border-[0.8px] border-gray-400 overflow-hidden relative rounded-full  bg-no-repeat "
+                        className="purplebg z-20 w-full h-full grid place-content-end border-[0.8px] border-gray-400 overflow-hidden relative rounded-full  bg-no-repeat "
                     >
                                 {/* <div className="bg-white aspect-square rounded-full w-11/12 mx-auto absolute bottom-0 left-1/2 -translate-x-1/2 z-40"></div> */}
                                 <img
-                                    src={require("./stock/meeeeeeeeee.jpeg")}
-                                    className="z-50 relative h-[42em] object-cover"
+                                    src={require("./stock/meeeeeeeeee-bg.png")}
+                                    className="z-50 relative h-[38em] object-cover"
                                     alt="me"
                                 />
                                 {/* <div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50"></div> */}
