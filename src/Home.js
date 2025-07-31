@@ -224,26 +224,22 @@ function Home() {
                     </div>
                     {/* <div className="light h-[300px] w-[400px] bg-gradient-to-t from-white to-white_trans absolute bottom-8 z-40"></div> */}
                 </div>
-                <div className="ellipse ellipse-2 lg:w-[20rem] lg:h-[42rem]  w-11/12 h-fit flex flex-col justify-center items-center group">
+                <div className="ellipse ellipse-2 lg:w-[20rem] lg:h-[42rem] w-11/12 h-fit flex flex-col justify-center items-center group">
                     <div
                         ref={(el) => {
                             purplebg = el;
                         }}
-                        className="purplebg z-20 w-full h-full grid place-content-end border-[0.8px] border-gray-400 overflow-hidden relative rounded-full bg-purple-pattern bg-[length:732px_753px] bg-no-repeat bg-[center_top_0rem]"
+                        className="purplebg z-20 w-full h-full grid place-content-center border-[0.8px] border-gray-400 overflow-hidden relative rounded-full  bg-no-repeat "
                     >
-                        <div className="relative bottom-10">
-                            <div className="rounded-b-full overflow-hidden transition-all duration-300">
-                                <div className="bg-white aspect-square rounded-full w-11/12 mx-auto absolute bottom-0 left-1/2 -translate-x-1/2 z-40"></div>
+                                {/* <div className="bg-white aspect-square rounded-full w-11/12 mx-auto absolute bottom-0 left-1/2 -translate-x-1/2 z-40"></div> */}
                                 <img
-                                    src={require("./stock/meeee-removebg.png")}
-                                    className="z-50 pt-20 relative"
+                                    src={require("./stock/meeeeeeeeee.jpeg")}
+                                    className="z-50 relative h-[42em] object-cover"
                                     alt="me"
                                 />
-                                <div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50"></div>
-                                <div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50 rotate-[22.5deg]"></div>
-                                <div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50 rotate-[-22.5deg]"></div>
-                            </div>
-                        </div>
+                                {/* <div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50"></div> */}
+                                {/* <div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50 rotate-[22.5deg]"></div> */}
+                                {/* <div className="bg-inherit border-[0.4rem] border-b-accent border-t-transparent border-l-transparent border-r-transparent aspect-square rounded-full w-11/12 absolute bottom-0 left-1/2 -translate-x-1/2 z-50 rotate-[-22.5deg]"></div> */}
                         {/* <div className="bg-white aspect-square w-40 rounded-full absolute bottom-10 translate-x-1/2">
 							<img
 								src={require("./stock/meee.png")}
