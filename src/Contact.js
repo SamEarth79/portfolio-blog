@@ -8,7 +8,7 @@ function Contact() {
     let [email, setEmail] = useState("");
     let [body, setBody] = useState("");
 
-    const myEmail = "samarthmm.work@gmail.com";
+    const myEmail = "shreyaaatwork@gmail.com";
 
     const sendEmail = () => {
         setName = "";
@@ -79,7 +79,7 @@ function Contact() {
                 </div>
                 <div className="links flex flex-col p-6  gap-8">
                     <a
-                        href="https://www.linkedin.com/in/samarthmm/"
+                        href="https://www.linkedin.com/in/shreya-harlapur-771327204/"
                         target="_blank"
                         rel="noreferrer"
                     >
@@ -88,10 +88,10 @@ function Contact() {
                                 icon={faLinkedin}
                                 className={"text-6xl max-sm:text-4xl"}
                             />
-                            <p>/ samarthmm</p>
+                            <p>/ shreya-harlapur</p>
                         </div>
                     </a>
-                    <a
+                    {/* <a
                         href="https://github.com/SamEarth79"
                         target="_blank"
                         rel="noreferrer"
@@ -103,7 +103,7 @@ function Contact() {
                             />
                             <p>/ SamEarth79</p>
                         </div>
-                    </a>
+                    </a> */}
                     <a
                         href={`mailto:${myEmail}`}
                         target="_blank"
@@ -115,7 +115,7 @@ function Contact() {
                                 className={"text-6xl max-sm:text-4xl"}
                             />
                             <p className="break-all">
-                                / samarthmm.work@gmail.com
+                                / shreyaaatwork@gmail.com
                             </p>
                         </div>
                     </a>

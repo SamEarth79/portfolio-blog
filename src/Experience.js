@@ -135,10 +135,10 @@ function Experience() {
                         <div className="">
                             <div className="flex flex-col gap-2 transition-all duration-300">
                                 <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[6em] after:transition-all after:duration-1000">
-                                    The Boston Consulting Group
+                                    Societe Generale
                                 </h1>
                                 <p className="font-light">
-                                    Dev-Ops Full Stack Web Developer
+                                    Technical Production Support Engineer
                                 </p>
                             </div>
                             <p className="mt-4">June 2023 - Present</p>
@@ -146,20 +146,31 @@ function Experience() {
                                 <div className="flex flex-col gap-px techstack1">
                                     <p className="font-light">TECH STACK</p>
                                     <p className="font-bold pr-10">
-                                        ReactJS, Django, AWS, Docker, Github Actions
+
                                     </p>
                                 </div>
                                 <div className="expDes4 hidden">
                                     <ul className="list-disc ml-4">
                                         <li className="mb-2 expDes1Item">
-                                        Developed scalable B2B web applications for international clients that enabled tailored business
-solutions, improved product planning, and streamlined communication, using Django, React, AWS,
-and close collaboration with international stakeholders.
+                                            Perform Windows OS and Linux OS support, including monitoring, system configuration, patching, and software issue resolution.
                                         </li>
                                         <li className="mb-2 expDes1Item">
-                                        Developed end-to-end DevOps workflows that automated testing and deployment, ensured reliable
-production environments, and improved release cycles, using GitHub Actions, Docker, Nginx, and
-AWS
+                                            Collaborate with APAC, EMEA, and AMER IT teams to resolve escalations and ensure SLA adherence.
+                                        </li>
+                                        <li className="mb-2 expDes1Item">
+                                            Utilize ITIL-based ticketing tools (ServiceNow/Jira) for incident tracking, prioritization, and closure.
+                                        </li>
+                                        <li className="mb-2 expDes1Item">
+                                            Execute network troubleshooting for connectivity issues, including VPN and LAN/WAN configurations.
+                                        </li>
+                                        <li className="mb-2 expDes1Item">
+                                            Maintain SOP documentation for recurring issues, improving first-call resolution rate.
+                                        </li>
+                                        <li className="mb-2 expDes1Item">
+                                            Achieved 95% for incident resolution and maintained CSAT scores above target.
+                                        </li>
+                                        <li className="mb-2 expDes1Item">
+                                            Raised and managed 50+ critical outage incidents, coordinating 24x7 Support / Rotational Shifts with engineering and business teams.
                                         </li>
                                     </ul>
                                 </div>
@@ -176,10 +187,10 @@ AWS
                         <div className="">
                             <div className="flex flex-col gap-2 transition-all duration-300">
                                 <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[6em] after:transition-all after:duration-1000">
-                                    LionCircuits
+                                    Societe Generale
                                 </h1>
                                 <p className="font-light">
-                                    Lead Full Stack Web Developer
+                                    Automation Regression Tester - Internship
                                 </p>
                             </div>
                             <p className="mt-4">June 2023 - Present</p>
@@ -187,33 +198,29 @@ AWS
                                 <div className="flex flex-col gap-px techstack1">
                                     <p className="font-light">TECH STACK</p>
                                     <p className="font-bold pr-10">
-                                        ReactJS, NextJS, Django, AWS, Tailwind CSS
+                                        Java, TestNG, Selenium, Rest API
                                     </p>
                                 </div>
                                 <div className="expDes1 hidden">
                                     <ul className="list-disc ml-4">
                                         <li className="mb-2 expDes1Item">
-                                        Leading the software development CI/CD pipeline, building fast paced and massive user group based
-features for customers and internal website for the organisation authoring 200+ Pull Requests and
-reviews.
+                                            Designed a data-driven automation framework using Selenium WebDriver and TestNG, improving test efficiency by 25%.
                                         </li>
                                         <li className="mb-2 expDes1Item">
-                                        Developed a Retrieval-Augmented Generation (RAG) AI assistant that enabled intelligent
-querying over 100,000+ electronic components and internal company documentation by building a
-custom vector database with contextual awareness integrated with AWS Bedrock
+                                            Reduced manual test efforts by automating 120+ test cases with Maven integration.
                                         </li>
                                         <li className="mb-2 expDes1Item">
-                                        Implemented major features such as Cart System, Payments, Finances (invoices) using industry level
-                                        Django Rest Framework (backend) and React-Redux (frontend).
+                                            Integrated the framework with Maven for build management and TestNG framework inspired by JUnit to
+simplify testing by offering annotations through REST APIs in JSON and XML formats.
                                         </li>
-                                        <li className="mb-2 expDes1Item">
+                                        {/* <li className="mb-2 expDes1Item">
                                         Utilized Amazon Web Services (AWS) such as Elastic Beanstalk, S3, EC2, Secrets Manager, RDS to
                                         optimize cloud-based infrastructure, ensuring scalable and reliable solutions.
                                         </li>
                                         <li className="mb-2 expDes1Item">
                                         Developed a Full Stack Next.js website with a UI/UX-accurate frontend and a backend integrated with
                                         Django server and AWS serverless functions for a customer facing SEO website.
-                                        </li>
+                                        </li> */}
                                     </ul>
                                 </div>
                             </div>
@@ -222,7 +229,7 @@ custom vector database with contextual awareness integrated with AWS Bedrock
                     <div className="max-sm:hidden w-1/2 h-full group-hover:w-0 transition-all ease-out duration-500"></div>
                 </div>
                 <div
-                    className="exp2 lg:h-1/2 w-full flex flex-col gap-10 group transition-all ease-out duration-500"
+                    className="exp2 lg:h-1/2 w-full flex flex-col gap-10 group transition-all ease-out duration-500 hidden"
                     onMouseOver={adjustHeights2}
                 >
                     <div className="expCard group w-full max-sm:w-full h-full min-h-fit relative bg-grey_bg border rounded-xl group-hover:w-full transition-all ease-out duration-500 py-4 pb-10 px-2 flex flex-col justify-start lg:justify-between">
@@ -269,7 +276,7 @@ matching industry standards of PEP 8.
                     <div className="max-sm:hidden w-1/2 h-full group-hover:w-0 transition-all ease-out duration-500"></div>
                 </div> 
                 <div
-                    className="exp3 lg:h-1/2 w-full flex flex-col gap-10 group transition-all ease-out duration-500"
+                    className="exp3 lg:h-1/2 w-full flex flex-col gap-10 group transition-all ease-out duration-500 hidden"
                     onMouseOver={adjustHeights3}
                 >
                     <div className="expCard group w-full max-sm:w-full h-full min-h-fit relative bg-grey_bg border rounded-xl group-hover:w-full transition-all ease-out duration-500 py-4 pb-10 px-2 flex flex-col justify-start lg:justify-between">

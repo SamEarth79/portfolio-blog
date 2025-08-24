@@ -41,7 +41,7 @@ const ProjectCard = (props) => {
             </div>
             <div className="h-1/2 group-hover:h-3/4 border-t relative transition-all duration-300">
                 <div className="techstack w-full flex justify-start">
-                    {props.tech.map((tech) => {
+                    {props?.tech?.map((tech) => {
                         if (tech[3] === "firebase") {
                             return (
                                 <div className="flex flex-col group-hover:px-px">

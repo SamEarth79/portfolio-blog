@@ -32,7 +32,7 @@ function NavigationBar() {
                         <a href="#home">Home</a>
                     </h1>
                     <h1>
-                        <a href="#projects">Projects</a>
+                        <a href="#projects">Skills</a>
                     </h1>
                     <h1>
                         <a href="#experience">Experience</a>
@@ -42,7 +42,7 @@ function NavigationBar() {
                     </h1>
                     <div className="flex justify-center space-x-3.5 pt-10 text-accent text-xl">
                         <a
-                            href="mailto:samarthmm.work@gmail.com"
+                            href="mailto:shreyaaatwork@gmail.com"
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -52,7 +52,7 @@ function NavigationBar() {
                             />
                         </a>
                         <a
-                            href="https://www.linkedin.com/in/samarthmm/"
+                            href="https://www.linkedin.com/in/shreya-harlapur-771327204/"
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -61,7 +61,7 @@ function NavigationBar() {
                                 className={"text-2xl"}
                             />
                         </a>
-                        <a
+                        {/* <a
                             href="https://github.com/SamEarth79"
                             target="_blank"
                             rel="noreferrer"
@@ -70,7 +70,7 @@ function NavigationBar() {
                                 icon={faGithub}
                                 className={"text-2xl"}
                             />
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </div>

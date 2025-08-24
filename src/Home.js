@@ -171,32 +171,32 @@ function Home() {
                 >
                     <div className="z-30 w-full h-full border-[0.8px] border-gray-400 board overflow-hidden rounded-full relative bg-black_bg text-white flex flex-col justify-center items-center hover:bg-grey_bg group">
                         <h1 className="font-Sawarabi_Mincho text-[40px] group-hover:text-[45px] transition-all duration-300 max-sm:p-5 max-md:p-5">
-                            Samarth M
+                            Shreya H
                         </h1>
                         <h2 className="tracking-[.40em] group-hover:tracking-[.70em] font-thin pt-6 transition-all duration-200 max-sm:pt-5 max-md:pt-5">
-                            FULL-STACK
+                            SOFTWARE
                         </h2>
                         <h2 className="tracking-[.40em] group-hover:tracking-[.70em] group-hover:pb-2 font-thin -mt-1 transition-all duration-200 max-sm:pb-5 max-md:pb-5">
-                            DEVELOPER
+                            ENGINEER
                         </h2>
                         <div className="my-10 flex items-center gap-2">
                             <FontAwesomeIcon 
                                 icon={faLinkedin}
                                 className="h-6 text-blue-500 cursor-pointer p-2 group-hover:h-10 transition-all duration-300"
-                                onClick={() => window.open("https://www.linkedin.com/in/samarth-m-16620416b/", "_blank")}
+                                onClick={() => window.open("https://www.linkedin.com/in/shreya-harlapur-771327204/", "_blank")}
                             />
-                            <FontAwesomeIcon 
+                            {/* <FontAwesomeIcon 
                                 icon={faGithub}
                                 className="h-6 text-white cursor-pointer p-2 group-hover:h-10 transition-all duration-300"
                                 onClick={() => window.open("https://github.com/SamEarth79", "_blank")}
-                            />
+                            /> */}
                             <FontAwesomeIcon 
                                 icon={faEnvelope}
                                 className="h-6 text-white cursor-pointer p-2 group-hover:h-10 transition-all duration-300"
-                                onClick={() => window.open("mailto:samarthmm.work@gmail.com", "_blank")}
+                                onClick={() => window.open("mailto:shreyaaatwork@gmail.com", "_blank")}
                             />
                         </div>
-                        <div className="absolute bottom-[12.5rem] text-accent rounded-full max-sm:hidden max-md:hidden">
+                        {/* <div className="absolute bottom-[12.5rem] text-accent rounded-full max-sm:hidden max-md:hidden">
                             <div className="relative flex">
                                 <h3 className="arcText absolute">I</h3>
                                 <h3 className="arcText absolute">{}</h3>
@@ -220,7 +220,7 @@ function Home() {
                                 <h3 className="arcText absolute">f</h3>
                                 <h3 className="arcText absolute">f</h3>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     {/* <div className="light h-[300px] w-[400px] bg-gradient-to-t from-white to-white_trans absolute bottom-8 z-40"></div> */}
                 </div>
@@ -233,7 +233,7 @@ function Home() {
                     >
                                 {/* <div className="bg-white aspect-square rounded-full w-11/12 mx-auto absolute bottom-0 left-1/2 -translate-x-1/2 z-40"></div> */}
                                 <img
-                                    src={require("./stock/meeeeeeeeee-bg.png")}
+                                    src={require("./stock/reyyyygpt-removebg-preview.png")}
                                     className="z-50 relative h-[38em] object-cover"
                                     alt="me"
                                 />
@@ -275,18 +275,14 @@ function Home() {
                             Me
                         </h1>
                         <p className="max-sm:hidden about1 absolute opacity-100 top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
-                            I'm a Dev-Ops Full Stack Web Developer @ BCG based in Bangalore, India. I
-                            have a great interest in web development,
-                            gaming, youtube and BTS.
+                            I'm Technical Support Engineer with 2+ years of experience ensuring application uptime, troubleshooting
+                            incidents, proficient with SQL, Unix, System Troubleshooting.
                         </p>
                         <p className="max-sm:hidden about2  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
-                            I'm a Computer Science graduate (4.6 gpa) with an experience of 3.5+ years in Software Development. I work everyday on ReactJS, 
-                            Django, NextJS, AWS, Docker.
+                            I've achieved Azure Fundamentals AZ-900 certification and Udemy's Business Analyst Fundamentals
                         </p>
                         <p className="max-sm:hidden about3  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
-                            I have a great interest in web development, and have
-                            completed an internship and multiple projects. I keep
-                            myself busy with web dev projects.
+                            I have a great interest in exploring tech events, as they provide opportunities to learn about emerging technologies, connect with industry professionals, and stay inspired by innovative ideas.
                         </p>
                         <div className="max-sm:hidden about4  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
                             Here are some technologies I have been working with:
