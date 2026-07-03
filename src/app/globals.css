@@ -4,6 +4,7 @@
   --color-bg-warm: #eeeae2;
   --color-bg-charcoal: #111112;
   --color-bg-navy: #14171f;
+  --color-bg-olive: #2b2d23;
   --color-fg: #f4f1ea;
   --color-fg-inverse: #14130f;
   --color-accent: #cbff33;
@@ -14,6 +15,7 @@
   --color-warm: var(--color-bg-warm);
   --color-charcoal: var(--color-bg-charcoal);
   --color-navy: var(--color-bg-navy);
+  --color-olive: var(--color-bg-olive);
   --color-offwhite: var(--color-fg);
   --color-ink: var(--color-fg-inverse);
   --color-accent: var(--color-accent);

@@ -1,11 +1,15 @@
 import Hero from "@/components/Hero";
-import ShowcasePlaceholder from "@/components/ShowcasePlaceholder";
+import About from "@/components/About";
+import Showcase from "@/components/Showcase";
 
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
       <Hero />
-      <ShowcasePlaceholder />
+      <div id="after-hero" className="relative z-10">
+        <About />
+        <Showcase />
+      </div>
     </main>
   );
 }

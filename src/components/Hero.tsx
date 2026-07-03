@@ -16,6 +16,7 @@ export default function Hero() {
   const line2Ref = useRef<HTMLSpanElement | null>(null);
   const cueRef = useRef<HTMLDivElement | null>(null);
   const fadeRef = useRef<HTMLDivElement | null>(null);
+  const scaleRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -65,25 +66,41 @@ export default function Hero() {
           "-=0.2"
         );
 
-      gsap.to(fadeRef.current, {
-        yPercent: -18,
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
+      // Hero is sticky; shrink + dim it as the next chapter scrolls over
+      const after = document.getElementById("after-hero");
+      if (after) {
+        gsap.to(scaleRef.current, {
+          scale: 0.88,
+          opacity: 0.4,
+          ease: "none",
+          transformOrigin: "center center",
+          scrollTrigger: {
+            trigger: after,
+            start: "top bottom",
+            end: "top top",
+            scrub: true,
+          },
+        });
+        gsap.to(fadeRef.current, {
+          yPercent: -14,
+          ease: "none",
+          scrollTrigger: {
+            trigger: after,
+            start: "top bottom",
+            end: "top top",
+            scrub: true,
+          },
+        });
+      }
     }, rootRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={rootRef}>
-      <Chapter background="warm">
+    <div ref={rootRef} className="sticky top-0 h-screen">
+      <div ref={scaleRef} className="h-full">
+      <Chapter background="warm" className="h-full !min-h-0">
         <ContourField />
 
         <div
@@ -147,6 +164,7 @@ export default function Hero() {
           <span className="h-8 w-px animate-pulse bg-current" />
         </div>
       </Chapter>
+      </div>
     </div>
   );
 }
