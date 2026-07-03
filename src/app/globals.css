@@ -42,20 +42,40 @@ body {
   box-sizing: border-box;
 }
 
-/* Contour field: ambient animated topographic texture for the light hero */
-@keyframes drift {
-  0% { transform: translateY(0px) scale(1); }
-  50% { transform: translateY(-10px) scale(1.02); }
-  100% { transform: translateY(0px) scale(1); }
+/* Contour field: huge ambient topographic curves, always drifting */
+@keyframes contour-drift-a {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(-46px, -22px) rotate(-0.7deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
-.animate-contours {
+@keyframes contour-drift-b {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(34px, 26px) rotate(0.9deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+@keyframes contour-drift-c {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(40px, -18px); }
+  100% { transform: translate(0, 0); }
+}
+.contour-drift-a,
+.contour-drift-b,
+.contour-drift-c,
+.contour-drift-slow {
   transform-box: fill-box;
   transform-origin: center;
-  animation: drift 20s ease-in-out infinite;
+  will-change: transform;
 }
+.contour-drift-a { animation: contour-drift-a 26s ease-in-out infinite; }
+.contour-drift-b { animation: contour-drift-b 34s ease-in-out infinite; }
+.contour-drift-c { animation: contour-drift-c 21s ease-in-out infinite; }
+.contour-drift-slow { animation: contour-drift-b 44s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-contours {
+  .contour-drift-a,
+  .contour-drift-b,
+  .contour-drift-c,
+  .contour-drift-slow {
     animation: none;
   }
 }

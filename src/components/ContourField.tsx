@@ -7,24 +7,61 @@ export default function ContourField() {
         preserveAspectRatio="xMidYMid slice"
         xmlns="http://www.w3.org/2000/svg"
       >
+        {/* Soft grey swash — a single wide ribbon, barely-there fill */}
+        <g className="contour-drift-slow">
+          <path
+            d="M -200 620
+               C 150 480, 420 700, 700 640
+               C 980 580, 1050 420, 1380 460
+               C 1550 480, 1700 560, 1900 520
+               L 1900 760
+               C 1600 820, 1200 760, 900 800
+               C 550 845, 150 780, -200 830 Z"
+            fill="var(--color-contour-line)"
+            opacity="0.045"
+          />
+        </g>
+
+        {/* Family 1: giant open contours sweeping from bottom-left across the viewport */}
         <g
-          className="animate-contours"
+          className="contour-drift-a"
           stroke="var(--color-contour-line)"
-          strokeWidth="2"
+          strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
-          strokeLinejoin="round"
+          opacity="0.13"
         >
-          <path d="M100 180 C80 70 210 30 290 90 C360 140 350 260 270 320 C190 380 80 330 70 240 Z"/>
-          <path d="M120 190 C105 95 210 65 275 115 C330 155 325 245 260 295 C195 345 110 300 105 230 Z"/>
-          <path d="M145 195 C130 120 205 100 255 135 C300 165 295 225 250 270 C205 315 145 280 145 215 Z"/>
-          <path d="M170 205 C160 145 205 135 235 160 C265 180 260 215 235 245 C205 275 170 250 170 215 Z"/>
-          <path d="M640 130 C610 20 760 10 860 90 C930 150 910 310 810 360 C700 420 560 320 580 200 Z"/>
-          <path d="M670 145 C650 60 760 55 835 115 C885 160 875 285 800 330 C720 380 630 300 645 215 Z"/>
-          <path d="M700 165 C690 95 760 95 810 135 C850 170 845 260 795 300 C740 340 685 285 690 225 Z"/>
-          <path d="M1200 280 C1180 180 1320 170 1390 250 C1450 315 1440 450 1365 520 C1280 600 1165 520 1175 390 Z"/>
-          <path d="M1225 295 C1215 220 1315 210 1370 270 C1415 320 1405 420 1355 470 C1300 530 1220 475 1225 390 Z"/>
-          <path d="M1250 315 C1245 250 1310 250 1345 285 C1375 320 1375 395 1340 435 C1305 470 1255 430 1250 380 Z"/>
+          <path d="M -250 900 C -100 640, 220 560, 480 660 C 760 768, 1040 700, 1180 520 C 1310 355, 1560 330, 1850 420" />
+          <path d="M -250 990 C -60 720, 260 640, 540 740 C 820 840, 1120 770, 1280 580 C 1420 415, 1650 385, 1900 470" />
+          <path d="M -250 1080 C -20 810, 310 720, 600 820 C 880 916, 1200 845, 1380 645 C 1530 480, 1740 445, 1950 525" />
+        </g>
+
+        {/* Family 2: enormous nested loop occupying the upper-right, mostly off-canvas */}
+        <g
+          className="contour-drift-b"
+          stroke="var(--color-contour-line)"
+          strokeWidth="1.5"
+          fill="none"
+          strokeLinecap="round"
+          opacity="0.12"
+        >
+          <path d="M 1900 -80 C 1500 -120, 1220 60, 1260 320 C 1295 545, 1520 660, 1760 610 C 1890 583, 1960 500, 1980 400" />
+          <path d="M 1930 30 C 1590 -10, 1350 140, 1385 350 C 1415 530, 1600 625, 1800 583 C 1905 560, 1960 490, 1975 410" />
+          <path d="M 1955 140 C 1690 105, 1490 220, 1515 380 C 1537 517, 1680 590, 1835 557" />
+        </g>
+
+        {/* Family 3: long lone meander lines crossing the whole top / middle */}
+        <g
+          className="contour-drift-c"
+          stroke="var(--color-contour-line)"
+          strokeWidth="1.5"
+          fill="none"
+          strokeLinecap="round"
+          opacity="0.11"
+        >
+          <path d="M -200 190 C 120 90, 380 260, 640 210 C 930 155, 1030 -40, 1350 30 C 1560 76, 1680 220, 1900 190" />
+          <path d="M -200 350 C 60 300, 240 430, 470 400 C 700 370, 780 240, 1010 265 C 1200 285, 1280 400, 1500 370" />
+          <path d="M 100 900 C 220 760, 460 740, 560 830 C 640 900, 560 990, 420 970" />
         </g>
       </svg>
     </div>
