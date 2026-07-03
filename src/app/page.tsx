@@ -6,12 +6,12 @@ import Outro from "@/components/Outro";
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
-      <Hero />
-      <div id="after-hero" className="relative z-10">
-        <About />
-        <Showcase />
-        <Outro />
+      <div id="hero-zone" className="h-[180vh]">
+        <Hero />
       </div>
+      <About />
+      <Showcase />
+      <Outro />
     </main>
   );
 }

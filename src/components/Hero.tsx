@@ -66,28 +66,18 @@ export default function Hero() {
           "-=0.2"
         );
 
-      // Hero is sticky; shrink + dim it as the next chapter scrolls over
-      const after = document.getElementById("after-hero");
-      if (after) {
+      // Hero sticks inside its tall wrapper: shrinks to 0.7 while pinned,
+      // then the whole (shrunken) hero scrolls up before About arrives.
+      const zone = document.getElementById("hero-zone");
+      if (zone) {
         gsap.to(scaleRef.current, {
-          scale: 0.88,
-          opacity: 0.4,
+          scale: 0.7,
           ease: "none",
           transformOrigin: "center center",
           scrollTrigger: {
-            trigger: after,
-            start: "top bottom",
-            end: "top top",
-            scrub: true,
-          },
-        });
-        gsap.to(fadeRef.current, {
-          yPercent: -14,
-          ease: "none",
-          scrollTrigger: {
-            trigger: after,
-            start: "top bottom",
-            end: "top top",
+            trigger: zone,
+            start: "top top",
+            end: "bottom bottom",
             scrub: true,
           },
         });

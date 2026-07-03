@@ -35,7 +35,8 @@ const FAMILIES: {
   },
 ];
 
-export default function ContourField() {
+export default function ContourField({ stroke }: { stroke?: string } = {}) {
+  const line = stroke ?? "var(--color-contour-line)";
   let drawIndex = 0;
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
@@ -55,7 +56,7 @@ export default function ContourField() {
                L 1900 760
                C 1600 820, 1200 760, 900 800
                C 550 845, 150 780, -200 830 Z"
-            fill="var(--color-contour-line)"
+            fill={line}
             className="contour-swash-fade"
             opacity="0.045"
           />
@@ -65,7 +66,7 @@ export default function ContourField() {
           <g
             key={family.drift}
             className={family.drift}
-            stroke="var(--color-contour-line)"
+            stroke={line}
             strokeWidth="1.5"
             fill="none"
             strokeLinecap="round"
