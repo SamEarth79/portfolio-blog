@@ -7,6 +7,7 @@
   --color-fg: #f4f1ea;
   --color-fg-inverse: #14130f;
   --color-accent: #cbff33;
+  --color-contour-line: #14130f;
 }
 
 @theme inline {
@@ -39,4 +40,81 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+/* Contour field: ambient animated topographic texture for the light hero */
+.contour-field {
+  opacity: 0.55;
+}
+
+.contour-line {
+  stroke: var(--color-contour-line);
+  stroke-width: 1;
+  stroke-opacity: 0.16;
+  fill: none;
+  stroke-dasharray: 3 7;
+  animation: contour-flow 22s linear infinite;
+}
+
+.contour-cluster path:nth-child(2) {
+  stroke-opacity: 0.14;
+  animation-duration: 26s;
+}
+.contour-cluster path:nth-child(3) {
+  stroke-opacity: 0.13;
+  animation-duration: 30s;
+}
+.contour-cluster path:nth-child(4) {
+  stroke-opacity: 0.12;
+  animation-duration: 34s;
+}
+.contour-cluster path:nth-child(5) {
+  stroke-opacity: 0.11;
+  animation-duration: 38s;
+}
+
+.contour-cluster {
+  animation: contour-drift 48s ease-in-out infinite;
+}
+.contour-cluster--a {
+  animation-duration: 42s;
+}
+.contour-cluster--b {
+  animation-duration: 55s;
+  animation-direction: reverse;
+}
+.contour-cluster--c {
+  animation-duration: 60s;
+}
+.contour-cluster--d {
+  animation-duration: 50s;
+  animation-direction: reverse;
+}
+.contour-cluster--e {
+  animation-duration: 46s;
+}
+
+@keyframes contour-flow {
+  to {
+    stroke-dashoffset: -400;
+  }
+}
+
+@keyframes contour-drift {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(2.5deg) scale(1.03);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contour-line,
+  .contour-cluster {
+    animation: none !important;
+  }
 }

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Chapter from "@/components/Chapter";
+import ContourField from "@/components/ContourField";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -82,7 +83,9 @@ export default function Hero() {
 
   return (
     <div ref={rootRef}>
-      <Chapter background="charcoal">
+      <Chapter background="warm">
+        <ContourField />
+
         <div
           ref={navRef}
           className="fixed top-0 left-0 z-20 flex w-full items-center justify-between px-6 py-5 mix-blend-difference sm:px-10"
@@ -98,15 +101,15 @@ export default function Hero() {
           </a>
         </div>
 
-        <div ref={fadeRef} className="flex flex-col gap-6 px-6 sm:px-10">
+        <div ref={fadeRef} className="relative z-10 flex flex-col gap-6 px-6 sm:px-10">
           <p
             ref={labelRef}
-            className="text-xs uppercase tracking-[0.35em] text-offwhite/60"
+            className="text-xs uppercase tracking-[0.35em] text-ink/50"
           >
             Full-Stack Developer &mdash; Bangalore, India
           </p>
 
-          <h1 className="font-display font-bold uppercase leading-[0.85] tracking-tight">
+          <h1 className="font-display font-bold uppercase leading-[0.85] tracking-tight text-ink">
             <span className="block overflow-hidden">
               <span
                 ref={line1Ref}
@@ -118,21 +121,25 @@ export default function Hero() {
             <span className="block overflow-hidden">
               <span
                 ref={line2Ref}
-                className="block text-[16vw] text-accent sm:text-[14vw]"
+                className="relative inline-block text-[16vw] sm:text-[14vw]"
               >
-                M M
+                <span className="relative z-10">M M</span>
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-[0.08em] -z-0 h-[0.34em] bg-accent"
+                />
               </span>
             </span>
           </h1>
 
-          <p className="max-w-md font-serif text-xl italic text-offwhite/70 sm:text-2xl">
+          <p className="max-w-md font-serif text-xl italic text-ink/70 sm:text-2xl">
             &ldquo;I like to build stuff.&rdquo;
           </p>
         </div>
 
         <div
           ref={cueRef}
-          className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-offwhite/50"
+          className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-ink/50"
         >
           <span className="text-[10px] uppercase tracking-[0.3em]">
             Scroll
