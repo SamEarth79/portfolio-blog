@@ -43,79 +43,19 @@ body {
 }
 
 /* Contour field: ambient animated topographic texture for the light hero */
-.contour-field {
-  opacity: 0.9;
+@keyframes drift {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.02); }
+  100% { transform: translateY(0px) scale(1); }
 }
-
-.contour-line {
-  stroke: var(--color-contour-line);
-  stroke-width: 1.4;
-  stroke-opacity: 0.42;
-  fill: none;
-  stroke-dasharray: 4 9;
-  animation: contour-flow 9s linear infinite;
-}
-
-.contour-cluster path:nth-child(2) {
-  stroke-opacity: 0.38;
-  animation-duration: 11s;
-}
-.contour-cluster path:nth-child(3) {
-  stroke-opacity: 0.34;
-  animation-duration: 13s;
-}
-.contour-cluster path:nth-child(4) {
-  stroke-opacity: 0.3;
-  animation-duration: 15s;
-}
-.contour-cluster path:nth-child(5) {
-  stroke-opacity: 0.26;
-  animation-duration: 17s;
-}
-
-.contour-cluster {
-  animation: contour-drift 14s ease-in-out infinite;
-  will-change: transform;
-}
-.contour-cluster--a {
-  animation-duration: 12s;
-}
-.contour-cluster--b {
-  animation-duration: 16s;
-  animation-direction: reverse;
-}
-.contour-cluster--c {
-  animation-duration: 18s;
-}
-.contour-cluster--d {
-  animation-duration: 15s;
-  animation-direction: reverse;
-}
-.contour-cluster--e {
-  animation-duration: 13s;
-}
-
-@keyframes contour-flow {
-  to {
-    stroke-dashoffset: -400;
-  }
-}
-
-@keyframes contour-drift {
-  0% {
-    transform: rotate(0deg) scale(1) translate(0, 0);
-  }
-  50% {
-    transform: rotate(7deg) scale(1.1) translate(14px, -10px);
-  }
-  100% {
-    transform: rotate(0deg) scale(1) translate(0, 0);
-  }
+.animate-contours {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: drift 20s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .contour-line,
-  .contour-cluster {
-    animation: none !important;
+  .animate-contours {
+    animation: none;
   }
 }
