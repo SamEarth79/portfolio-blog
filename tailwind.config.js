@@ -8,10 +8,11 @@ module.exports = {
 				Sawarabi_Mincho: ["Sawarabi Mincho", "sans-serif"],
 			},
 			colors: {
-				accent: "#8E05C2",
-				black_bg: "#131313",
-				grey_bg: "#1B1B1B",
-				grey_bg_trans: "#1B1B1B00",
+				accent: "#64181E",
+				black_bg: "#A08D71",
+				grey_bg: "#8B7A63",
+				grey_bg_trans: "#8B7A6300",
+				card_bg: "#D7C7A8",
 				white_trans: "#ffffff00",
 			},
 			spacing: {
@@ -23,7 +24,6 @@ module.exports = {
 				arc_innercircle: "90%",
 			},
 			backgroundImage: {
-				"purple-pattern": "url('https://raw.githubusercontent.com/SamEarth79/portfolio-blog/main/public/purple_liquid.jpeg')",
 				meeeee: "url('/public/meee.png')",
 			},
 		},

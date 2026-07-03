@@ -170,14 +170,14 @@ function Home() {
                     className="ellipse ellipse-1 lg:w-[20rem] lg:h-[42rem]  w-11/12 h-fit flex flex-col justify-center items-center"
                 >
                     <div className="z-30 w-full h-full border-[0.8px] border-gray-400 board overflow-hidden rounded-full relative bg-black_bg text-white flex flex-col justify-center items-center hover:bg-grey_bg group">
-                        <h1 className="font-Sawarabi_Mincho text-[28px] group-hover:text-[32px] transition-all duration-300 max-sm:p-5 max-md:p-5">
+                        <h1 className="font-Sawarabi_Mincho text-[28px] group-hover:text-[32px] transition-all duration-300 max-sm:p-5 max-md:p-5 text-accent">
                             Shreya Harlapur
                         </h1>
-                        <h2 className="tracking-[.30em] group-hover:tracking-[.50em] font-thin pt-4 transition-all duration-200 max-sm:pt-5 max-md:pt-5 text-base">
-                            TECHNICAL
+                        <h2 className="tracking-[.30em] group-hover:tracking-[.50em] font-bold pt-4 transition-all duration-200 max-sm:pt-5 max-md:pt-5 text-base text-accent">
+                            TECHNICAL PROJECT
                         </h2>
-                        <h2 className="tracking-[.30em] group-hover:tracking-[.50em] group-hover:pb-2 font-thin -mt-1 transition-all duration-200 max-sm:pb-5 max-md:pb-5 text-base">
-                            ACCOUNT MANAGER
+                        <h2 className="tracking-[.30em] group-hover:tracking-[.50em] group-hover:pb-2 font-bold -mt-1 transition-all duration-200 max-sm:pb-5 max-md:pb-5 text-base text-accent">
+                            MANAGER
                         </h2>
                         <div className="my-10 flex items-center gap-2">
                             <FontAwesomeIcon 
@@ -268,19 +268,24 @@ function Home() {
                     </div>
                     <div className="bg-black_bg h-20 w-[20.1rem] absolute overflow-x-hidden"></div>
                     <div className="z-10 w-full h-full max-sm:h-fit border-[0.8px] border-gray-400 board overflow-hidden relative rounded-full bg-black_bg text-white lg:text-right lg:px-8 lg:py-20 hover:bg-grey_bg group">
-                        <h1 className="max-sm:hidden font-Sawarabi_Mincho text-[40px] group-hover:text-[45px] group-hover:-mt-1 transition-all duration-300">
+                        <h1 className="max-sm:hidden font-Sawarabi_Mincho text-[40px] group-hover:text-[45px] group-hover:-mt-1 transition-all duration-300 text-accent">
                             About
                         </h1>
-                        <h1 className="max-sm:hidden font-Sawarabi_Mincho text-[40px] group-hover:text-[45px] group-hover:-mt-2 transition-all duration-300">
+                        <h1 className="max-sm:hidden font-Sawarabi_Mincho text-[40px] group-hover:text-[45px] group-hover:-mt-2 transition-all duration-300 text-accent">
                             Me
                         </h1>
-                        <p className="max-sm:hidden about1 absolute opacity-100 top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
-                            Technical Project Manager @ Workday (By Spectraforce) leading end-to-end technical project delivery across cross-functional teams. Previously worked at Razorpay and Societe Generale.
+                        <p className="max-sm:hidden about1 absolute opacity-100 top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300 text-left">
+                            Technical Project Manager @Workday leading end-to-end technical project delivery across cross-functional teams. Previously worked at Razorpay and Societe Generale.
                         </p>
-                        <p className="max-sm:hidden about2  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
-                            Microsoft Certified: Azure Cloud (AZ-900 Fundamentals). Also certified in Business Analysis Fundamentals (Udemy) and SkillPath (Coursera). SAE India AeroDesign Aircraft Competition Winner.
-                        </p>
-                        <p className="max-sm:hidden about3  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
+                        <div className="max-sm:hidden about2 opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
+                            <ul className="list-disc ml-4 text-left">
+                                <li className="mb-1">Microsoft Certified: Azure Cloud (AZ-900 Fundamentals)</li>
+                                <li className="mb-1">Business Analysis Fundamentals (Udemy)</li>
+                                <li className="mb-1">SkillPath (Coursera)</li>
+                                <li className="mb-1">SAE India AeroDesign Aircraft Competition Winner</li>
+                            </ul>
+                        </div>
+                        <p className="max-sm:hidden about3  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300 text-justify">
                             I have a great interest in exploring tech events, as they provide opportunities to learn about emerging technologies, connect with industry professionals, and stay inspired by innovative ideas.
                         </p>
                         <div className="max-sm:hidden about4  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">

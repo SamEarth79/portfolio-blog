@@ -15,8 +15,8 @@ function Projects() {
             id="projects"
             className="projects max-sm:mt-20 h-screen w-full flex flex-col justify-center max-w-screen-2xl"
         >
-			<h1 className="text-white text-5xl p-5 font-medium text-center mb-10">Technical Skills</h1>
-            <div className="container bg-purple-pattern h-4/6 p-4 w-full flex lg:justify-around max-sm:gap-10 overflow-x-scroll">
+			<h1 className="text-accent text-5xl p-5 font-medium text-center mb-10">Technical Skills</h1>
+            <div className="container bg-black_bg h-4/6 p-4 w-full flex lg:justify-around max-sm:gap-10 overflow-x-scroll">
                 {/* <div className="h-full lg:basis-1/4 max-sm:min-w-[16rem] flex flex-col border p-2 text-white bg-black_bg group">
 					<div className="h-1/2 group-hover:h-1/3 flex flex-col justify-end transition-all duration-300">
 						<p className="text-gray-500 text-7xl group-hover:text-8xl group-hover:text-white transition-all duration-300">01</p>

@@ -46,7 +46,7 @@ let adjustHeights1 = () => {
     if (!isMobile.matches) {
         console.log("adjust1");
         let exp1 = document.querySelector(".exp1");
-        exp1.style = "height: 100%";
+        exp1.style = "height: 70%";
         displayDes(".expDes1");
     }
 };
@@ -55,7 +55,7 @@ let adjustHeights2 = () => {
     if (!isMobile.matches) {
         console.log("adjust1");
         let exp1 = document.querySelector(".exp2");
-        exp1.style = "height: 75%";
+        exp1.style = "height: 70%";
         displayDes(".expDes2");
     }
 };
@@ -64,7 +64,7 @@ let adjustHeights3 = () => {
     if (!isMobile.matches) {
         console.log("adjust1");
         let exp1 = document.querySelector(".exp3");
-        exp1.style = "height: 75%";
+        exp1.style = "height: 70%";
         displayDes(".expDes3");
     }
 };
@@ -73,7 +73,7 @@ let adjustHeights4 = () => {
     if (!isMobile.matches) {
         console.log("adjust1");
         let exp1 = document.querySelector(".exp4");
-        exp1.style = "height: 75%";
+        exp1.style = "height: 70%";
         displayDes(".expDes4");
     }
 };
@@ -84,13 +84,13 @@ let adjustHeights0 = () => {
     if (!isMobile.matches) {
         console.log("adjust0");
         let exp1 = document.querySelector(".exp1");
-        exp1.style = "height: 50%";
+        exp1.style = "height: 25%";
         let exp2 = document.querySelector(".exp2");
-        exp2.style = "height: 50%";
+        exp2.style = "height: 25%";
         let exp3 = document.querySelector(".exp3");
-        exp3.style = "height: 50%";
+        exp3.style = "height: 25%";
         let exp4 = document.querySelector(".exp4");
-        exp4.style = "height: 50%";
+        exp4.style = "height: 25%";
         let techstack1 = document.querySelector(".techstack1");
         techstack1.style = "display: block";
         displayDes0();
@@ -124,29 +124,29 @@ function Experience() {
             id="experience"
         >
             <div
-                className="w-10/12 lg:h-4/6 relative flex flex-col max-sm:gap-10"
+                className="w-10/12 lg:h-5/6 relative flex flex-col lg:gap-16 max-sm:gap-10"
                 onMouseOut={adjustHeights0}
             >
                 <div
-                    className="exp4 lg:h-1/2 w-full flex flex-col gap-10 group transition-all ease-out duration-500"
+                    className="exp4 lg:h-1/4 w-full flex flex-col gap-10 group transition-all ease-out duration-500"
                     onMouseOver={adjustHeights4}
                 >
                     <div className="expCard group w-full max-sm:w-full h-full min-h-fit relative bg-grey_bg border rounded-xl group-hover:w-full transition-all ease-out duration-500 py-4 pb-10 px-2 flex flex-col justify-start lg:justify-between">
                         <div className="">
                             <div className="flex flex-col gap-2 transition-all duration-300">
-                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[8em] after:transition-all after:duration-1000">
-                                    Workday (By Spectraforce)
+                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[5em] after:transition-all after:duration-1000">
+                                    Workday
                                 </h1>
                                 <p className="font-light">
-                                    Technical Project Manager
+                                    Technical Project Manager @Workday
                                 </p>
                             </div>
-                            <p className="mt-4">Present</p>
+                            <p className="mt-4">May 2025 - Present</p>
                             <div className="exp1Container flex flex-col lg:h-3/4 lg:justify-around">
                                 <div className="flex flex-col gap-px techstack1">
                                     <p className="font-light">TECH STACK</p>
                                     <p className="font-bold pr-10">
-                                        Agile, Jira, Cross-functional coordination
+                                        MySQL, UAT testing, API testing (Postman), Power BI, Agile, Jira, Tableau, Google Workspace
                                     </p>
                                 </div>
                                 <div className="expDes4 hidden">
@@ -180,7 +180,7 @@ function Experience() {
                     <div className="max-sm:hidden w-1/2 h-full group-hover:w-0 transition-all ease-out duration-500"></div>
                 </div>
                 <div
-                    className="exp1 lg:h-1/2 w-full flex flex-col gap-10 group transition-all ease-out duration-500"
+                    className="exp1 lg:h-1/4 w-full flex flex-col gap-10 group transition-all ease-out duration-500"
                     onMouseOver={adjustHeights1}
                 >
                     <div className="expCard group w-full max-sm:w-full h-full min-h-fit relative bg-grey_bg border rounded-xl group-hover:w-full transition-all ease-out duration-500 py-4 pb-10 px-2 flex flex-col justify-start lg:justify-between">
@@ -193,12 +193,12 @@ function Experience() {
                                     Technical Account Manager
                                 </p>
                             </div>
-                            <p className="mt-4">Nov 2025 - Present</p>
+                            <p className="mt-4">Nov 2025 - May 2026</p>
                             <div className="exp1Container flex flex-col lg:h-3/4 lg:justify-around">
                                 <div className="flex flex-col gap-px techstack1">
                                     <p className="font-light">TECH STACK</p>
                                     <p className="font-bold pr-10">
-                                        REST APIs, Postman, Zendesk, Jira
+                                        MySQL, Corologix, Salesforce, Tableau, Power BI
                                     </p>
                                 </div>
                                 <div className="expDes1 hidden">
@@ -226,8 +226,54 @@ function Experience() {
                     <div className="max-sm:hidden w-1/2 h-full group-hover:w-0 transition-all ease-out duration-500"></div>
                 </div>
                 <div
-                    className="exp2 lg:h-1/2 w-full flex flex-col gap-10 group transition-all ease-out duration-500"
+                    className="exp2 lg:h-1/4 w-full flex flex-col gap-10 group transition-all ease-out duration-500"
                     onMouseOver={adjustHeights2}
+                >
+                    <div className="expCard group w-full max-sm:w-full h-full min-h-fit relative bg-grey_bg border rounded-xl group-hover:w-full transition-all ease-out duration-500 py-4 pb-10 px-2 flex flex-col justify-start lg:justify-between">
+                        <div className="">
+                            <div className="flex flex-col gap-2 transition-all duration-300">
+                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[6em] after:transition-all after:duration-1000">
+                                    Societe Generale
+                                </h1>
+                                <p className="font-light">
+                                    Technical Production Support Engineer
+                                </p>
+                            </div>
+                            <p className="mt-4">July 2023 - Nov 2025</p>
+                            <div className="exp1Container flex flex-col lg:h-3/4 lg:justify-around">
+                                <div className="flex flex-col gap-px techstack1">
+                                    <p className="font-light">TECH STACK</p>
+                                    <p className="font-bold pr-10">
+                                        ITIL, ServiceNow, Jira, SQL, Unix
+                                    </p>
+                                </div>
+                                <div className="expDes2 hidden">
+                                    <ul className="list-disc ml-4">
+                                        <li className="mb-2 expDes1Item">
+                                            Provided end-user troubleshooting ensuring minimal downtime.
+                                        </li>
+                                        <li className="mb-2 expDes1Item">
+                                            Managed incident tracking, prioritization, and escalation, ensuring timely resolution within SLA.
+                                        </li>
+                                        <li className="mb-2 expDes1Item">
+                                            Collaborated with APAC, EMEA IT teams to resolve customer support issues.
+                                        </li>
+                                        <li className="mb-2 expDes1Item">
+                                            Achieved 95% for incident resolution and maintained CSAT scores above target.
+                                        </li>
+                                        <li className="mb-2 expDes1Item">
+                                            Raised and managed 50+ critical outage incidents while consistently meeting deadlines, adapting quickly to feedback, and demonstrating a strong growth mindset with readiness to take on new challenges.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="max-sm:hidden w-1/2 h-full group-hover:w-0 transition-all ease-out duration-500"></div>
+                </div> 
+                <div
+                    className="exp3 lg:h-1/4 w-full flex flex-col gap-10 group transition-all ease-out duration-500"
+                    onMouseOver={adjustHeights3}
                 >
                     <div className="expCard group w-full max-sm:w-full h-full min-h-fit relative bg-grey_bg border rounded-xl group-hover:w-full transition-all ease-out duration-500 py-4 pb-10 px-2 flex flex-col justify-start lg:justify-between">
                         <div className="">
@@ -239,7 +285,7 @@ function Experience() {
                                     Automation Regression Tester - Internship
                                 </p>
                             </div>
-                            <p className="mt-4">Feb 2023 - June 2023</p>
+                            <p className="mt-4">Feb 2023 - July 2023</p>
                             <div className="exp1Container flex flex-col lg:h-3/4 lg:justify-around">
                                 <div className="flex flex-col gap-px techstack1">
                                     <p className="font-light">TECH STACK</p>
@@ -247,69 +293,13 @@ function Experience() {
                                         Java, TestNG, Selenium, Rest API
                                     </p>
                                 </div>
-                                <div className="expDes2 hidden">
+                                <div className="expDes3 hidden">
                                     <ul className="list-disc ml-4">
                                         <li className="mb-2 expDes1Item">
                                             Built a data-driven Selenium WebDriver–TestNG automation framework with Maven integration, automating 120+ test cases and improving test efficiency by 25%.
                                         </li>
                                         <li className="mb-2 expDes1Item">
                                             Enabled JSON/XML test data via REST APIs using TestNG (Java Unit test scripts).
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="max-sm:hidden w-1/2 h-full group-hover:w-0 transition-all ease-out duration-500"></div>
-                </div> 
-                <div
-                    className="exp3 lg:h-1/2 w-full flex flex-col gap-10 group transition-all ease-out duration-500 hidden"
-                    onMouseOver={adjustHeights3}
-                >
-                    <div className="expCard group w-full max-sm:w-full h-full min-h-fit relative bg-grey_bg border rounded-xl group-hover:w-full transition-all ease-out duration-500 py-4 pb-10 px-2 flex flex-col justify-start lg:justify-between">
-                        <div className="">
-                            <div className="flex flex-col gap-2 transition-all duration-300">
-                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[8em] after:transition-all after:duration-1000">
-                                    My Smart Shala
-                                </h1>
-                                <p className="font-light">
-                                    Full stack web development intern
-                                </p>
-                            </div>
-                            <p className="mt-4">Aug 2021 - Nov 2021</p>
-                            <div className="exp1Container flex flex-col lg:h-3/4 lg:justify-around">
-                                <div className="flex flex-col gap-px techstack1">
-                                    <p className="font-light">TECH STACK</p>
-                                    <p className="font-bold pr-10">
-                                        React.js, Python, HTML/CSS, npm
-                                    </p>
-                                </div>
-                                <div className="expDes3 hidden">
-                                    <ul className="list-disc ml-4">
-                                        <li className="mb-2 expDes1Item">
-                                            Led a team of 5 in development of a
-                                            full stack feature that enables
-                                            e-signatures and maintaining the
-                                            file structure.
-                                        </li>
-                                        <li className="mb-2 expDes1Item">
-                                            Optimized the feature to work on a
-                                            large scale and decreased latency by
-                                            40% by building own microservices to
-                                            facilitate collecting and placing
-                                            signatures on e-documents using
-                                            Python.
-                                        </li>
-                                        <li className="mb-2 expDes1Item">
-                                            Improved user experience of the
-                                            feature by implementing a clean UI
-                                            using ReactJS frontend framework
-                                            along with HTML and CSS.
-                                        </li>
-                                        <li className="mb-2 expDes1Item">
-                                            Interpreted the existing code base
-                                            and system design and built the
-                                            feature following it.
                                         </li>
                                     </ul>
                                 </div>

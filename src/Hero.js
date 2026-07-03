@@ -11,9 +11,9 @@ function Hero() {
 		<div className="lg:ml-nav_width scroll-smooth ">
 			<Home></Home>
 			<Projects></Projects>
-			<h1 className="text-white text-5xl p-5 font-medium -mb-24 mt-10 text-center">Experience</h1>
+			<h1 className="text-accent text-5xl p-5 font-medium mb-10 mt-10 text-center">Experience</h1>
 			<Experience></Experience>
-			<h1 className="text-white text-5xl p-5 font-medium -mb-24 mt-10 text-center" id="certifications">Certifications</h1>
+			<h1 className="text-accent text-5xl p-5 font-medium -mb-24 mt-10 text-center" id="certifications">Certifications</h1>
 			<div className="lg:h-screen w-full flex justify-center items-center">
 				<div className="w-10/12 grid grid-cols-1 lg:grid-cols-2 gap-8">
 					<div className="bg-grey_bg border rounded-xl p-8 flex items-start gap-6 group hover:border-accent transition-all duration-300">

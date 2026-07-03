@@ -31,13 +31,13 @@ const ProjectCard = (props) => {
     return (
         <div
             ref={(el) => (card = el)}
-            className="h-full lg:w-[24%] max-sm:min-w-[16rem] flex flex-col border p-2 text-white bg-black_bg group"
+            className="h-full lg:w-[24%] max-sm:min-w-[16rem] flex flex-col border p-2 text-accent bg-card_bg group"
         >
             <div className="h-1/2 group-hover:h-1/3 flex flex-col justify-end transition-all duration-300">
-                <p className="text-gray-500 text-7xl group-hover:text-8xl group-hover:text-white transition-all ease-in duration-300">
+                <p className="text-accent text-7xl group-hover:text-8xl transition-all ease-in duration-300">
                     {props.id}
                 </p>
-                <h1 className="font-Sawarabi_Mincho text-3xl">{props.title}</h1>
+                <h1 className="font-Sawarabi_Mincho text-3xl text-accent">{props.title}</h1>
             </div>
             <div className="h-1/2 group-hover:h-3/4 border-t relative transition-all duration-300">
                 <div className="techstack w-full flex justify-start">

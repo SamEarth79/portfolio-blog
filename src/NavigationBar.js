@@ -20,7 +20,7 @@ function NavigationBar() {
                 <div className="w-5 h-[2.5px] bg-white"></div>
                 <div className="w-3 h-[2.5px] bg-white"></div>
             </div>
-            <div className="navigation bg-grey_bg h-full w-nav_width z-50 max-sm:w-8/12 fixed top-0 left-0 overflow-x-hidden max-sm:hidden max-md:hidden">
+            <div className="navigation bg-accent h-full w-nav_width z-50 max-sm:w-8/12 fixed top-0 left-0 overflow-x-hidden max-sm:hidden max-md:hidden">
                 <div
                     className="text-2xl font-Sawarabi_Mincho text-white cursor-pointer lg:hidden absolute right-0 p-2"
                     onClick={toggleNav}
