@@ -1,7 +1,6 @@
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Showcase from "@/components/Showcase";
-import Outro from "@/components/Outro";
 
 export default function Home() {
   return (
@@ -11,7 +10,6 @@ export default function Home() {
       </div>
       <About />
       <Showcase />
-      <Outro />
     </main>
   );
 }
