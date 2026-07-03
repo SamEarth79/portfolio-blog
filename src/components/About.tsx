@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Chapter from "@/components/Chapter";
-import ContourField from "@/components/ContourField";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,8 +51,7 @@ export default function About() {
 
   return (
     <div ref={rootRef}>
-      <Chapter background="olive" className="items-center text-center">
-        <ContourField stroke="var(--color-fg)" />
+      <Chapter background="transparent" className="items-center text-center">
         <div className="relative z-10 flex max-w-6xl flex-col items-center gap-10 px-6 py-32 sm:px-10">
           <p
             data-about-reveal

@@ -17,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
-  style: ["italic"],
+  style: ["normal", "italic"],
   weight: ["500"],
 });
 

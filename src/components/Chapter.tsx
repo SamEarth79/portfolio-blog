@@ -5,6 +5,7 @@ const BG_CLASS = {
   charcoal: "bg-charcoal text-offwhite",
   navy: "bg-navy text-offwhite",
   olive: "bg-olive text-offwhite",
+  transparent: "text-offwhite",
 } as const;
 
 export type ChapterBackground = keyof typeof BG_CLASS;
