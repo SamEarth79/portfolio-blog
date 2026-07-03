@@ -9,7 +9,10 @@ export default function Home() {
         <Hero />
       </div>
       <About />
-      <Showcase />
+      {/* Plain block wrapper: GSAP pin-spacers misbehave as direct flex children */}
+      <div className="block w-full">
+        <Showcase />
+      </div>
     </main>
   );
 }

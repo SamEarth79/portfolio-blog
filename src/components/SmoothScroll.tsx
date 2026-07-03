@@ -29,6 +29,10 @@ export default function SmoothScroll({
 
     lenis.on("scroll", ScrollTrigger.update);
 
+    // Pin-spacers change document height during refresh; make Lenis re-measure
+    const onRefresh = () => lenis.resize();
+    ScrollTrigger.addEventListener("refresh", onRefresh);
+
     const tickerCallback = (time: number) => {
       lenis.raf(time * 1000);
     };
@@ -36,6 +40,7 @@ export default function SmoothScroll({
     gsap.ticker.lagSmoothing(0);
 
     return () => {
+      ScrollTrigger.removeEventListener("refresh", onRefresh);
       gsap.ticker.remove(tickerCallback);
       lenis.destroy();
       lenisRef.current = null;
