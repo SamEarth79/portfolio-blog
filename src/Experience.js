@@ -134,43 +134,43 @@ function Experience() {
                     <div className="expCard group w-full max-sm:w-full h-full min-h-fit relative bg-grey_bg border rounded-xl group-hover:w-full transition-all ease-out duration-500 py-4 pb-10 px-2 flex flex-col justify-start lg:justify-between">
                         <div className="">
                             <div className="flex flex-col gap-2 transition-all duration-300">
-                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[6em] after:transition-all after:duration-1000">
-                                    Societe Generale
+                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[8em] after:transition-all after:duration-1000">
+                                    Workday (By Spectraforce)
                                 </h1>
                                 <p className="font-light">
-                                    Technical Production Support Engineer
+                                    Technical Project Manager
                                 </p>
                             </div>
-                            <p className="mt-4">June 2023 - Present</p>
+                            <p className="mt-4">Present</p>
                             <div className="exp1Container flex flex-col lg:h-3/4 lg:justify-around">
                                 <div className="flex flex-col gap-px techstack1">
                                     <p className="font-light">TECH STACK</p>
                                     <p className="font-bold pr-10">
-
+                                        Agile, Jira, Cross-functional coordination
                                     </p>
                                 </div>
                                 <div className="expDes4 hidden">
                                     <ul className="list-disc ml-4">
                                         <li className="mb-2 expDes1Item">
-                                            Perform Windows OS and Linux OS support, including monitoring, system configuration, patching, and software issue resolution.
+                                            Lead end-to-end planning, execution, and delivery of technical projects across cross-functional teams.
                                         </li>
                                         <li className="mb-2 expDes1Item">
-                                            Collaborate with APAC, EMEA, and AMER IT teams to resolve escalations and ensure SLA adherence.
+                                            Coordinate with engineering, product, QA, support, and business stakeholders for smooth project execution.
                                         </li>
                                         <li className="mb-2 expDes1Item">
-                                            Utilize ITIL-based ticketing tools (ServiceNow/Jira) for incident tracking, prioritization, and closure.
+                                            Identify project risks, dependencies, and blockers; drive mitigation plans proactively.
                                         </li>
                                         <li className="mb-2 expDes1Item">
-                                            Execute network troubleshooting for connectivity issues, including VPN and LAN/WAN configurations.
+                                            Facilitate daily stand-ups, sprint planning, status meetings, and stakeholder reviews.
                                         </li>
                                         <li className="mb-2 expDes1Item">
-                                            Maintain SOP documentation for recurring issues, improving first-call resolution rate.
+                                            Ensure technical implementations align with business goals and customer requirements.
                                         </li>
                                         <li className="mb-2 expDes1Item">
-                                            Achieved 95% for incident resolution and maintained CSAT scores above target.
+                                            Monitor system integrations, product deployments, and release activities.
                                         </li>
                                         <li className="mb-2 expDes1Item">
-                                            Raised and managed 50+ critical outage incidents, coordinating 24x7 Support / Rotational Shifts with engineering and business teams.
+                                            Drive issue resolution by coordinating with internal teams during critical incidents.
                                         </li>
                                     </ul>
                                 </div>
@@ -186,41 +186,38 @@ function Experience() {
                     <div className="expCard group w-full max-sm:w-full h-full min-h-fit relative bg-grey_bg border rounded-xl group-hover:w-full transition-all ease-out duration-500 py-4 pb-10 px-2 flex flex-col justify-start lg:justify-between">
                         <div className="">
                             <div className="flex flex-col gap-2 transition-all duration-300">
-                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[6em] after:transition-all after:duration-1000">
-                                    Societe Generale
+                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[5em] after:transition-all after:duration-1000">
+                                    Razorpay
                                 </h1>
                                 <p className="font-light">
-                                    Automation Regression Tester - Internship
+                                    Technical Account Manager
                                 </p>
                             </div>
-                            <p className="mt-4">June 2023 - Present</p>
+                            <p className="mt-4">Nov 2025 - Present</p>
                             <div className="exp1Container flex flex-col lg:h-3/4 lg:justify-around">
                                 <div className="flex flex-col gap-px techstack1">
                                     <p className="font-light">TECH STACK</p>
                                     <p className="font-bold pr-10">
-                                        Java, TestNG, Selenium, Rest API
+                                        REST APIs, Postman, Zendesk, Jira
                                     </p>
                                 </div>
                                 <div className="expDes1 hidden">
                                     <ul className="list-disc ml-4">
                                         <li className="mb-2 expDes1Item">
-                                            Designed a data-driven automation framework using Selenium WebDriver and TestNG, improving test efficiency by 25%.
+                                            Served as the primary technical point of contact for enterprise and high-value merchants, leading 10+ end-to-end integration of Razorpay payment and banking APIs.
                                         </li>
                                         <li className="mb-2 expDes1Item">
-                                            Reduced manual test efforts by automating 120+ test cases with Maven integration.
+                                            Managed end-to-end customer onboarding and implementation workflows, ensuring smooth handover from kickoff to go-live.
                                         </li>
                                         <li className="mb-2 expDes1Item">
-                                            Integrated the framework with Maven for build management and TestNG framework inspired by JUnit to
-simplify testing by offering annotations through REST APIs in JSON and XML formats.
-                                        </li>
-                                        {/* <li className="mb-2 expDes1Item">
-                                        Utilized Amazon Web Services (AWS) such as Elastic Beanstalk, S3, EC2, Secrets Manager, RDS to
-                                        optimize cloud-based infrastructure, ensuring scalable and reliable solutions.
+                                            Coordinated user provisioning and deprovisioning requests, supported user access and synchronization issues, validated account creation and removal, and escalated SCIM-related issues to technical teams.
                                         </li>
                                         <li className="mb-2 expDes1Item">
-                                        Developed a Full Stack Next.js website with a UI/UX-accurate frontend and a backend integrated with
-                                        Django server and AWS serverless functions for a customer facing SEO website.
-                                        </li> */}
+                                            Coordinated with cross-functional teams to track deliverables, timelines, and issue resolution.
+                                        </li>
+                                        <li className="mb-2 expDes1Item">
+                                            Monitored project progress, scheduled meetings, and maintained comprehensive agendas and documentation to support transparent project execution.
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -229,44 +226,34 @@ simplify testing by offering annotations through REST APIs in JSON and XML forma
                     <div className="max-sm:hidden w-1/2 h-full group-hover:w-0 transition-all ease-out duration-500"></div>
                 </div>
                 <div
-                    className="exp2 lg:h-1/2 w-full flex flex-col gap-10 group transition-all ease-out duration-500 hidden"
+                    className="exp2 lg:h-1/2 w-full flex flex-col gap-10 group transition-all ease-out duration-500"
                     onMouseOver={adjustHeights2}
                 >
                     <div className="expCard group w-full max-sm:w-full h-full min-h-fit relative bg-grey_bg border rounded-xl group-hover:w-full transition-all ease-out duration-500 py-4 pb-10 px-2 flex flex-col justify-start lg:justify-between">
                         <div className="">
                             <div className="flex flex-col gap-2 transition-all duration-300">
-                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[11.5em] after:transition-all after:duration-1000">
-                                    Toshiba Software India
+                                <h1 className="font-Sawarabi_Mincho underlineText text-4xl max-sm:text-2xl relative after:absolute after:content-[''] after:w-[0em] after:h-[2px] after:bg-accent after:bottom-0 after:left-0 max-sm:group-hover:after:w-full group-hover:after:w-[6em] after:transition-all after:duration-1000">
+                                    Societe Generale
                                 </h1>
                                 <p className="font-light">
-                                    Associate Software Engineer
+                                    Automation Regression Tester - Internship
                                 </p>
                             </div>
-                            <p className="mt-4">Aug 2021 - Nov 2021</p>
+                            <p className="mt-4">Feb 2023 - June 2023</p>
                             <div className="exp1Container flex flex-col lg:h-3/4 lg:justify-around">
                                 <div className="flex flex-col gap-px techstack1">
                                     <p className="font-light">TECH STACK</p>
                                     <p className="font-bold pr-10">
-                                        React.js, Python, HTML/CSS, npm
+                                        Java, TestNG, Selenium, Rest API
                                     </p>
                                 </div>
                                 <div className="expDes2 hidden">
                                     <ul className="list-disc ml-4">
                                         <li className="mb-2 expDes1Item">
-                                        Designed and developed a complete python framework for the regression cycle that outperformed the
-previous one by reducing regression time by 40% and failures by 70%. Authored the python code
-matching industry standards of PEP 8.
+                                            Built a data-driven Selenium WebDriver–TestNG automation framework with Maven integration, automating 120+ test cases and improving test efficiency by 25%.
                                         </li>
                                         <li className="mb-2 expDes1Item">
-                                        Reduced manual efforts of the test team by 3x by automating tasks and developing CLI tools using
-                                        Python and REST APIs.
-                                        </li>
-                                        <li className="mb-2 expDes1Item">
-                                        Authored and maintained 60+ test
-                                            scripts using Google test framework
-                                            through multiple scrum cycles,
-                                            resulting in an identification and
-                                            reduction of bugs in the product.
+                                            Enabled JSON/XML test data via REST APIs using TestNG (Java Unit test scripts).
                                         </li>
                                     </ul>
                                 </div>

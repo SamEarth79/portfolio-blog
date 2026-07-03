@@ -165,56 +165,24 @@ function Projects() {
                 <ProjectCard
                     className="card1"
                     id="01"
-                    title="Troubleshooting Diagnostics"
-                    // tech={[
-                    //     [faReact, "React Native", "text-blue-500"],
-					// 	[null, "Firebase", "text-sky-500", "firebase"],
-                    //     [null, "Supabase", "text-blue-500", "supabase"],
-                    // ]}
-                    desc="Troubleshooting Diagnostics : Root cause analysis | Log analysis (system/app logs) | Performance tuning|Incident and Change Management | Customer Communication"
-                    // weblink="https://main.d100dmsfe3uycb.amplifyapp.com/"
-                    // githublink="https://github.com/SamEarth79/spotifinder"
+                    title="API & Integration"
+                    desc="REST APIs (Postman, Webhooks) | End-to-end merchant integrations | xAPI, SSO, SCIM | Integration coordination support"
                 />
                 <ProjectCard
                     className="card1"
                     id="02"
-                    title="Operating Systems"
-                    // tech={[
-                    //     [faHtml5, "HTML", "text-orange-500"],
-                    //     [faCss3Alt, "CSS", "text-blue-500"],
-                    //     [null, "NextJS", "text-blue-500", "nextjs"],
-                    //     [null, "MongoDB", "text-blue-500", "mongodb"],
-                    //     [faSpotify, "Spotify API", "text-green-500"],
-                    // ]}
-                    desc="WindowsOS(client or server)—Linux/Unix"
-                    // weblink="https://main.d100dmsfe3uycb.amplifyapp.com/"
-                    // githublink="https://github.com/SamEarth79/spotifinder"
+                    title="Support & Project Tracking"
+                    desc="Zendesk, ServiceNow, Freshdesk, Salesforce, HubSpot CRM | Jira, Notion, Trello, ClickUp | Cross-functional collaboration"
                 />
                 <ProjectCard
                     id="03"
-                    title="Networking"
-                    // tech={[
-                    //     [faHtml5, "HTML", "text-orange-500"],
-                    //     [faCss3Alt, "CSS", "text-blue-500"],
-                    //     [faReact, "React.js", "text-sky-500"],
-                    //     [null, "Redux", "text-sky-500", "redux"],
-                    //     [null, "Firebase", "text-sky-500", "firebase"],
-                    // ]}
-                    desc="TCP/IP, DNS, DHCP —Network Troubleshooting (LAN/WAN, VPN)"
-                    // weblink="https://vouge-salon.web.app/"
-                    // githublink="https://github.com/SamEarth79/vogue-salon"
+                    title="Incident Management & Reporting"
+                    desc="RCA & System log analysis | SQL querying | Performance testing | Change & Incident management | Tableau, Power BI, Excel | Status & metrics tracking"
                 />
                 <ProjectCard
                     id="04"
-                    title="Cloud Technologies"
-                    // tech={[
-                    //     [faHtml5, "HTML", "text-orange-500"],
-                    //     [faCss3Alt, "CSS", "text-blue-500"],
-                    //     [faReact, "React.js", "text-sky-500"],
-                    // ]}
-                    desc="Microsoft Azure services (VMs, App Services, Storage, Networking)|Azure Portal| Basic understanding }\textbf{of IaaS/PaaS/SaaS"
-                    // weblink="https://circlefy.onrender.com/"
-                    // githublink="https://github.com/SamEarth79/portfolio-blog"
+                    title="GenAI"
+                    desc="Prompt engineering | LLM integration (OpenAI, Copilot AI) | AI-powered workflows | Generative AI for automation & productivity"
                 />
             </div>
         </div>

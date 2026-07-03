@@ -170,14 +170,14 @@ function Home() {
                     className="ellipse ellipse-1 lg:w-[20rem] lg:h-[42rem]  w-11/12 h-fit flex flex-col justify-center items-center"
                 >
                     <div className="z-30 w-full h-full border-[0.8px] border-gray-400 board overflow-hidden rounded-full relative bg-black_bg text-white flex flex-col justify-center items-center hover:bg-grey_bg group">
-                        <h1 className="font-Sawarabi_Mincho text-[40px] group-hover:text-[45px] transition-all duration-300 max-sm:p-5 max-md:p-5">
-                            Shreya H
+                        <h1 className="font-Sawarabi_Mincho text-[28px] group-hover:text-[32px] transition-all duration-300 max-sm:p-5 max-md:p-5">
+                            Shreya Harlapur
                         </h1>
-                        <h2 className="tracking-[.40em] group-hover:tracking-[.70em] font-thin pt-6 transition-all duration-200 max-sm:pt-5 max-md:pt-5">
-                            SOFTWARE
+                        <h2 className="tracking-[.30em] group-hover:tracking-[.50em] font-thin pt-4 transition-all duration-200 max-sm:pt-5 max-md:pt-5 text-base">
+                            TECHNICAL
                         </h2>
-                        <h2 className="tracking-[.40em] group-hover:tracking-[.70em] group-hover:pb-2 font-thin -mt-1 transition-all duration-200 max-sm:pb-5 max-md:pb-5">
-                            ENGINEER
+                        <h2 className="tracking-[.30em] group-hover:tracking-[.50em] group-hover:pb-2 font-thin -mt-1 transition-all duration-200 max-sm:pb-5 max-md:pb-5 text-base">
+                            ACCOUNT MANAGER
                         </h2>
                         <div className="my-10 flex items-center gap-2">
                             <FontAwesomeIcon 
@@ -253,7 +253,7 @@ function Home() {
                     ref={(el) => {
                         ellipse3 = el;
                     }}
-                    className="ellipse ellipse-3 lg:w-[20rem] lg:h-[42rem]  w-11/12 h-fit flex aboutdiv relative flex-col justify-center items-center lg:overflow-x-auto overscroll-x-contain "
+                    className="ellipse ellipse-3 lg:w-[20rem] lg:h-[42rem]  w-11/12 h-fit flex aboutdiv relative flex-col justify-center items-center overflow-x-hidden "
                     onClick={myFunction}
                     id={"about"}
                     onWheel={scrolled}
@@ -266,7 +266,7 @@ function Home() {
                             O
                         </p>
                     </div>
-                    <div className="bg-black_bg h-20 w-[20.1rem] absolute lg:overflow-x-scroll overscroll-x-contain"></div>
+                    <div className="bg-black_bg h-20 w-[20.1rem] absolute overflow-x-hidden"></div>
                     <div className="z-10 w-full h-full max-sm:h-fit border-[0.8px] border-gray-400 board overflow-hidden relative rounded-full bg-black_bg text-white lg:text-right lg:px-8 lg:py-20 hover:bg-grey_bg group">
                         <h1 className="max-sm:hidden font-Sawarabi_Mincho text-[40px] group-hover:text-[45px] group-hover:-mt-1 transition-all duration-300">
                             About
@@ -275,11 +275,10 @@ function Home() {
                             Me
                         </h1>
                         <p className="max-sm:hidden about1 absolute opacity-100 top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
-                            I'm Technical Support Engineer with 2+ years of experience ensuring application uptime, troubleshooting
-                            incidents, proficient with SQL, Unix, System Troubleshooting.
+                            Technical Project Manager @ Workday (By Spectraforce) leading end-to-end technical project delivery across cross-functional teams. Previously worked at Razorpay and Societe Generale.
                         </p>
                         <p className="max-sm:hidden about2  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
-                            I've achieved Azure Fundamentals AZ-900 certification and Udemy's Business Analyst Fundamentals
+                            Microsoft Certified: Azure Cloud (AZ-900 Fundamentals). Also certified in Business Analysis Fundamentals (Udemy) and SkillPath (Coursera). SAE India AeroDesign Aircraft Competition Winner.
                         </p>
                         <p className="max-sm:hidden about3  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
                             I have a great interest in exploring tech events, as they provide opportunities to learn about emerging technologies, connect with industry professionals, and stay inspired by innovative ideas.
@@ -287,20 +286,38 @@ function Home() {
                         <div className="max-sm:hidden about4  opacity-0 absolute top-1/2 -translate-y-about_me_translate ml-6 tracking-wider right-10 group-hover:leading-relaxed transition-all duration-300">
                             Here are some technologies I have been working with:
                             <div className="grid list-none grid-flow-col grid-rows-6 mt-4">
-                                    <div className="text-right mr-2">HTML & CSS </div>
-                                    <div className="text-right mr-2">Javascript ES6+</div>
+                                    <div className="text-right mr-2">REST APIs</div>
+                                    <div className="text-right mr-2">Postman</div>
+                                    <div className="text-right mr-2">SQL</div>
+                                    <div className="text-right mr-2">Python</div>
                                     <div className="text-right mr-2">React.js</div>
-                                    <div className="text-right mr-2">Next.js</div>
-                                    <div className="text-right mr-2">Django</div>
-                                    <div className="text-right mr-2">AWS</div>
+                                    <div className="text-right mr-2">Azure</div>
                                     <div className="text-left">
                                         <FontAwesomeIcon
                                             icon={faHtml5}
                                             className="text-orange-500 h-7"
                                         />
+                                    </div>
+                                    <div className="text-left">
+                                        <img
+                                            src={
+                                                require("./stock/icons8-next.js.svg")
+                                                    .default
+                                            }
+                                            alt="firebase_logo"
+                                            className="h-7"
+                                        />
+                                    </div>
+                                    <div className="text-left">
                                         <FontAwesomeIcon
-                                            icon={faCss3Alt}
-                                            className="text-blue-500 h-7 pl-1"
+                                            icon={faAws}
+                                            className="text-sky-400 h-7"
+                                        />
+                                    </div>
+                                    <div className="text-left">
+                                        <FontAwesomeIcon
+                                            icon={faReact}
+                                            className="text-sky-400 h-7"
                                         />
                                     </div>
                                     <div className="text-left">
@@ -311,30 +328,8 @@ function Home() {
                                     </div>
                                     <div className="text-left">
                                         <FontAwesomeIcon
-                                            icon={faReact}
-                                            className="text-sky-400 h-7"
-                                        />
-                                    </div>
-                                            <img
-                                            src={
-                                                require("./stock/icons8-next.js.svg")
-                                                    .default
-                                            }
-                                            alt="firebase_logo"
-                                            className="h-7"
-                                        />
-                                        <img
-                                            src={
-                                                require("./stock/icons8-django.svg")
-                                                    .default
-                                            }
-                                            alt="firebase_logo"
-                                            className="h-7"
-                                        />
-                                    <div className="text-left">
-                                        <FontAwesomeIcon
-                                            icon={faAws}
-                                            className="text-sky-400 h-7"
+                                            icon={faCss3Alt}
+                                            className="text-blue-500 h-7"
                                         />
                                     </div>
                             </div>

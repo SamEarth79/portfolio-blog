@@ -38,6 +38,9 @@ function NavigationBar() {
                         <a href="#experience">Experience</a>
                     </h1>
                     <h1>
+                        <a href="#certifications">Certifications</a>
+                    </h1>
+                    <h1>
                         <a href="#contact">Contact</a>
                     </h1>
                     <div className="flex justify-center space-x-3.5 pt-10 text-accent text-xl">
