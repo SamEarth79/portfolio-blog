@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Chapter from "@/components/Chapter";
-import TerrainName from "@/components/TerrainName";
+import ContourMap from "@/components/ContourMap";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -90,7 +90,7 @@ export default function Hero() {
     <div ref={rootRef} className="sticky top-0 h-screen">
       <div ref={scaleRef} className="h-full">
         <Chapter background="warm" className="h-full !min-h-0">
-          <TerrainName />
+          <ContourMap />
 
           {/* Survey-sheet frame: hairline border with corner register marks */}
           <div
@@ -114,7 +114,7 @@ export default function Hero() {
           <div className="relative z-10 flex flex-col gap-6 px-6 sm:px-10">
             <p
               ref={labelRef}
-              className="ml-2 text-xs uppercase tracking-[0.35em] text-ink/50 sm:ml-4"
+              className="ml-2 text-xs uppercase tracking-[0.35em] text-ink sm:ml-4"
             >
               Full-Stack Developer &mdash; Bangalore, India
             </p>

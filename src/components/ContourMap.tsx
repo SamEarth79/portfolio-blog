@@ -3,11 +3,12 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Live terrain hero: a heightfield of gaussian peaks arranged 2-3-2, from
- * which marching squares extracts topographic contour lines every frame.
- * Ambient waves keep the lowlands moving; the cursor is a surveyor's probe
- * that dents the terrain so the contours re-flow around it. A trailing
- * readout reports the real sampled elevation.
+ * Live contour world map: stylised continent outlines are rasterised into a
+ * heightfield (equirectangular projection), and marching squares extracts
+ * topographic contour lines from it every frame. Gentle ambient waves keep
+ * the oceans moving; on fine pointers the cursor is a surveyor's probe that
+ * dents the terrain so contours re-flow around it, while a trailing readout
+ * reports sampled elevation and true lat/lon. Bangalore wears an accent fix.
  */
 
 const ROWS = 110;
@@ -19,7 +20,75 @@ const REVEAL_MS = 2200;
 const SEA_LEVEL_M = 780;
 const PEAK_M = 2450;
 
-export default function TerrainName() {
+const HOME = { lon: 77.59, lat: 12.97 }; // Bangalore
+
+// Stylised coastlines as [lon, lat, lon, lat, ...] rings. Deliberately
+// coarse — the raster blur rounds them into contour-friendly landmasses.
+const LANDMASSES: { ring: number[] }[] = [
+  {
+    // North America
+    ring: [
+      -165, 65, -160, 58, -152, 58, -140, 60, -130, 55, -125, 49, -124, 40,
+      -117, 33, -110, 24, -105, 20, -95, 16, -90, 14, -83, 9, -79, 9, -83, 15,
+      -90, 20, -97, 26, -91, 29, -83, 28, -81, 25, -80, 32, -76, 35, -74, 40,
+      -70, 44, -66, 45, -60, 47, -58, 52, -64, 60, -78, 62, -85, 66, -110, 68,
+      -130, 70, -155, 71, -165, 65,
+    ],
+  },
+  {
+    // South America
+    ring: [
+      -77, 7, -75, 10, -72, 12, -64, 10, -52, 5, -44, -3, -35, -8, -39, -13,
+      -41, -22, -48, -28, -53, -34, -58, -39, -65, -41, -66, -47, -69, -52,
+      -71, -54, -73, -50, -71, -42, -71, -33, -70, -25, -70, -18, -76, -14,
+      -81, -6, -80, 0, -77, 7,
+    ],
+  },
+  {
+    // Africa
+    ring: [
+      -6, 35, 3, 37, 10, 37, 20, 32, 30, 31, 34, 28, 37, 18, 43, 11, 51, 10,
+      46, 2, 40, -5, 35, -15, 33, -26, 27, -34, 17, -30, 12, -18, 9, -5, 9, 4,
+      -5, 5, -13, 9, -17, 15, -10, 28, -6, 35,
+    ],
+  },
+  {
+    // Eurasia
+    ring: [
+      -9, 43, -9, 37, 0, 37, 5, 43, 12, 44, 12, 38, 16, 40, 22, 37, 28, 36,
+      36, 36, 35, 31, 35, 28, 39, 21, 43, 12, 52, 14, 60, 22, 56, 27, 50, 30,
+      61, 25, 66, 25, 72, 20, 77, 8, 80, 13, 87, 22, 94, 16, 98, 8, 105, 12,
+      109, 15, 107, 21, 114, 22, 121, 30, 122, 38, 125, 40, 131, 43, 135, 48,
+      141, 53, 156, 51, 162, 56, 170, 60, 178, 65, 170, 68, 160, 70, 140, 72,
+      110, 74, 90, 75, 70, 72, 60, 69, 48, 68, 40, 66, 30, 70, 18, 69, 5, 61,
+      8, 57, 13, 55, 8, 54, 4, 52, -2, 48, -9, 43,
+    ],
+  },
+  {
+    // Australia
+    ring: [
+      114, -22, 122, -18, 130, -12, 136, -12, 142, -11, 146, -15, 149, -20,
+      153, -27, 150, -37, 144, -38, 140, -36, 135, -35, 129, -32, 124, -33,
+      115, -34, 113, -26, 114, -22,
+    ],
+  },
+  {
+    // Greenland
+    ring: [
+      -45, 60, -40, 64, -32, 68, -22, 70, -25, 76, -38, 80, -55, 82, -68, 78,
+      -58, 72, -52, 65, -45, 60,
+    ],
+  },
+  { ring: [44, -12, 50, -16, 47, -25, 44, -22, 43, -16, 44, -12] }, // Madagascar
+  { ring: [130, 32, 135, 34, 140, 36, 141, 40, 143, 44, 140, 43, 136, 36, 131, 33, 130, 32] }, // Japan
+  { ring: [-5, 50, 0, 52, -2, 56, -5, 58, -7, 55, -5, 50] }, // Britain
+  { ring: [109, 0, 114, 4, 118, 1, 116, -3, 110, -2, 109, 0] }, // Borneo
+  { ring: [96, 4, 102, 0, 106, -5, 112, -7, 114, -8, 105, -6, 98, 2, 96, 4] }, // Sumatra & Java
+  { ring: [131, -2, 138, -3, 146, -6, 143, -8, 135, -5, 131, -2] }, // New Guinea
+  { ring: [173, -35, 176, -38, 174, -41, 170, -44, 167, -46, 170, -42, 173, -35] }, // New Zealand
+];
+
+export default function ContourMap() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const readoutRef = useRef<HTMLDivElement | null>(null);
   const elevRef = useRef<HTMLSpanElement | null>(null);
@@ -57,12 +126,10 @@ export default function TerrainName() {
         .getPropertyValue("--color-accent")
         .trim() || "#cbff33";
 
-    /** Static smoothed noise so the "sea" around the name has character. */
-    function bakeNoise(c: number, r: number) {
-      const gw = 10;
-      const gh = 6;
+    /** Static smoothed noise, 0..1, from a coarse random lattice. */
+    function bakeNoise(c: number, r: number, gw: number, gh: number, seedIn: number) {
       const g = new Float32Array((gw + 1) * (gh + 1));
-      let seed = 79;
+      let seed = seedIn;
       const rand = () => {
         seed = (seed * 16807) % 2147483647;
         return seed / 2147483647;
@@ -83,7 +150,7 @@ export default function TerrainName() {
           const top = g[i0] + (g[i0 + 1] - g[i0]) * sx;
           const i1 = i0 + gw + 1;
           const bot = g[i1] + (g[i1 + 1] - g[i1]) * sx;
-          out[y * c + x] = (top + (bot - top) * sy) * 0.14;
+          out[y * c + x] = top + (bot - top) * sy;
         }
       }
       return out;
@@ -103,31 +170,38 @@ export default function TerrainName() {
       canvas!.height = Math.round(cssH * dpr);
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      // Abstract range: gaussian peaks laid out in a 2-3-2 pattern of
-      // contour islands, each with its own height and footprint.
-      const peaks: { x: number; y: number; h: number; r: number }[] = [
-        { x: 0.32, y: 0.22, h: 0.82, r: 0.13 },
-        { x: 0.68, y: 0.24, h: 0.9, r: 0.15 },
-        { x: 0.18, y: 0.5, h: 0.78, r: 0.12 },
-        { x: 0.5, y: 0.52, h: 0.92, r: 0.16 },
-        { x: 0.82, y: 0.5, h: 0.8, r: 0.13 },
-        { x: 0.34, y: 0.78, h: 0.86, r: 0.14 },
-        { x: 0.66, y: 0.76, h: 0.76, r: 0.12 },
-      ];
-      const noise = bakeNoise(cols, rows);
-      base = new Float32Array(cols * rows);
-      for (let y = 0; y < rows; y++) {
-        for (let x = 0; x < cols; x++) {
-          let h = 0;
-          for (const p of peaks) {
-            const dx = x - p.x * cols;
-            const dy = y - p.y * rows;
-            const s = (p.r * rows * 1.15) ** 2 * 2;
-            const v = p.h * Math.exp(-(dx * dx + dy * dy) / s);
-            if (v > h) h = v;
-          }
-          base[y * cols + x] = h + noise[y * cols + x];
+      // Rasterise the coastline rings at grid resolution, blurred so the
+      // landmasses become smooth elevation rather than hard plateaus.
+      const off = document.createElement("canvas");
+      off.width = cols;
+      off.height = rows;
+      const octx = off.getContext("2d")!;
+      octx.fillStyle = "#000";
+      octx.fillRect(0, 0, cols, rows);
+      octx.filter = `blur(${rows * 0.011}px)`;
+      octx.fillStyle = "#fff";
+      for (const land of LANDMASSES) {
+        octx.beginPath();
+        const ring = land.ring;
+        for (let i = 0; i < ring.length; i += 2) {
+          const px = ((ring[i] + 180) / 360) * cols;
+          const py = ((90 - ring[i + 1]) / 180) * rows;
+          if (i === 0) octx.moveTo(px, py);
+          else octx.lineTo(px, py);
         }
+        octx.closePath();
+        octx.fill();
+      }
+
+      const img = octx.getImageData(0, 0, cols, rows).data;
+      // Oceans get faint character; continent interiors get rolling hills so
+      // they carry a few inner contours instead of reading as empty plateaus.
+      const seaNoise = bakeNoise(cols, rows, 10, 6, 79);
+      const landNoise = bakeNoise(cols, rows, 16, 9, 1234);
+      base = new Float32Array(cols * rows);
+      for (let i = 0; i < base.length; i++) {
+        const land = img[i * 4] / 255;
+        base[i] = land * (0.52 + 0.4 * landNoise[i]) + (1 - land) * 0.1 * seaNoise[i];
       }
       field = new Float32Array(cols * rows);
     }
@@ -137,13 +211,14 @@ export default function TerrainName() {
       const cy = cursor.y;
       const s = cursor.s;
       const r2 = (rows * 0.085) ** 2 * 2;
+      // Calm seas: enough drift to feel alive, not enough to melt coastlines
       const wobble = reduced ? 0 : 1;
       for (let y = 0; y < rows; y++) {
-        const wy = Math.sin(y * 0.24 - t * 0.45) * 0.045 * wobble;
+        const wy = Math.sin(y * 0.24 - t * 0.22) * 0.009 * wobble;
         for (let x = 0; x < cols; x++) {
           const i = y * cols + x;
           let h =
-            base[i] + wy + Math.sin(x * 0.19 + t * 0.6 + y * 0.07) * 0.045 * wobble;
+            base[i] + wy + Math.sin(x * 0.19 + t * 0.3 + y * 0.07) * 0.009 * wobble;
           if (s > 0.001) {
             const dx = x - cx;
             const dy = y - cy;
@@ -204,7 +279,38 @@ export default function TerrainName() {
 
     const accentLevel = Math.round(((0.5 - ISO_MIN) / (ISO_MAX - ISO_MIN)) * (LEVELS - 1));
 
-    function draw(reveal: number) {
+    const BEACON = "#ff2d1f";
+
+    function drawHomeFix(reveal: number, t: number) {
+      const hx = ((HOME.lon + 180) / 360) * cssW;
+      const hy = ((90 - HOME.lat) / 180) * cssH;
+
+      // Beacon: a bright red fix that fires an expanding ring every 3s
+      const phase = reduced ? 0 : (t % 3) / 3;
+      ctx!.globalAlpha = reveal;
+      ctx!.fillStyle = BEACON;
+      ctx!.beginPath();
+      ctx!.arc(hx, hy, 4, 0, Math.PI * 2);
+      ctx!.fill();
+
+      if (!reduced) {
+        const ringR = 5 + phase * 22;
+        ctx!.globalAlpha = reveal * (1 - phase) * 0.9;
+        ctx!.strokeStyle = BEACON;
+        ctx!.lineWidth = 1.5;
+        ctx!.beginPath();
+        ctx!.arc(hx, hy, ringR, 0, Math.PI * 2);
+        ctx!.stroke();
+      }
+
+      ctx!.globalAlpha = reveal;
+      ctx!.font = "700 10px ui-monospace, SFMono-Regular, Menlo, monospace";
+      ctx!.fillStyle = BEACON;
+      ctx!.fillText("BLR", hx + 12, hy + 4);
+      ctx!.globalAlpha = 1;
+    }
+
+    function draw(reveal: number, t: number) {
       ctx!.clearRect(0, 0, cssW, cssH);
       for (let k = 0; k < LEVELS; k++) {
         // Contours surface from the sea up during the reveal.
@@ -228,7 +334,7 @@ export default function TerrainName() {
         }
         ctx!.stroke(path);
       }
-      ctx!.globalAlpha = 1;
+      drawHomeFix(reveal, t);
     }
 
     function sampleElevation(gx: number, gy: number) {
@@ -252,17 +358,17 @@ export default function TerrainName() {
       pointerPx.y += (pointerPx.ty - pointerPx.y) * 0.16;
 
       computeField(t);
-      draw(reveal);
+      draw(reveal, t);
 
       if (cursor.s > 0.02) {
         readout!.style.opacity = String(Math.min(cursor.s * 1.4, 1) * reveal);
         readout!.style.transform = `translate(${pointerPx.x + 24}px, ${pointerPx.y + 28}px)`;
         elevEl!.textContent = `ELEV ${sampleElevation(cursor.x, cursor.y).toLocaleString("en-US")} M`;
         if (coordRef.current) {
-          // Map the sheet onto a small survey window centred on Bangalore
-          const lat = 12.97 + (0.5 - cursor.y / (rows - 1)) * 30;
-          const lon = 77.59 + (cursor.x / (cols - 1) - 0.5) * 50;
-          coordRef.current.textContent = `${Math.abs(lat).toFixed(4)}° ${lat < 0 ? "S" : "N"} · ${Math.abs(lon).toFixed(4)}° E`;
+          // Equirectangular sheet: the cursor reads true world coordinates
+          const lat = 90 - (cursor.y / (rows - 1)) * 180;
+          const lon = (cursor.x / (cols - 1)) * 360 - 180;
+          coordRef.current.textContent = `${Math.abs(lat).toFixed(2)}° ${lat < 0 ? "S" : "N"} · ${Math.abs(lon).toFixed(2)}° ${lon < 0 ? "W" : "E"}`;
         }
       } else {
         readout!.style.opacity = "0";
@@ -298,25 +404,22 @@ export default function TerrainName() {
 
     let ro: ResizeObserver | null = null;
 
-    document.fonts.ready.then(() => {
-      if (disposed) return;
+    buildBase();
+    if (reduced) {
+      computeField(0);
+      draw(1, 0);
+    } else {
+      raf = requestAnimationFrame(frame);
+      if (finePointer) window.addEventListener("mousemove", onMove);
+    }
+    ro = new ResizeObserver(() => {
       buildBase();
       if (reduced) {
         computeField(0);
-        draw(1);
-        return;
+        draw(1, 0);
       }
-      raf = requestAnimationFrame(frame);
-      if (finePointer) window.addEventListener("mousemove", onMove);
-      ro = new ResizeObserver(() => {
-        buildBase();
-        if (reduced) {
-          computeField(0);
-          draw(1);
-        }
-      });
-      ro.observe(canvas!.parentElement!);
     });
+    ro.observe(canvas.parentElement!);
 
     return () => {
       disposed = true;
@@ -334,7 +437,7 @@ export default function TerrainName() {
         className="pointer-events-none absolute left-0 top-0 select-none font-mono text-[10px] uppercase tracking-[0.2em] text-ink/70 opacity-0 will-change-transform"
       >
         <span ref={elevRef} className="block">ELEV — M</span>
-        <span ref={coordRef} className="block text-ink/40">12.9700&deg; N &middot; 77.5900&deg; E</span>
+        <span ref={coordRef} className="block text-ink/40">12.97&deg; N &middot; 77.59&deg; E</span>
       </div>
     </div>
   );
