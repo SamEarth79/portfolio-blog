@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Work_Sans, Space_Grotesk, Fraunces } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import Nav from "@/components/Nav";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
       className={`${workSans.variable} ${spaceGrotesk.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-charcoal">
+        <Nav />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

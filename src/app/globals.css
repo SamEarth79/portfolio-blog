@@ -8,6 +8,8 @@
   --color-fg: #f4f1ea;
   --color-fg-inverse: #14130f;
   --color-accent: #cbff33;
+  /* Deeper chartreuse for use on the warm/light theme, where neon lime washes out */
+  --color-bg-accent-deep: #5f7d0f;
   --color-contour-line: #14130f;
 }
 
@@ -19,6 +21,7 @@
   --color-offwhite: var(--color-fg);
   --color-ink: var(--color-fg-inverse);
   --color-accent: var(--color-accent);
+  --color-accent-deep: var(--color-bg-accent-deep);
 
   --font-sans: var(--font-work-sans);
   --font-display: var(--font-space-grotesk);
