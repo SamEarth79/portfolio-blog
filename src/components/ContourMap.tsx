@@ -57,7 +57,9 @@ const LANDMASSES: { ring: number[] }[] = [
     ring: [
       -9, 43, -9, 37, 0, 37, 5, 43, 12, 44, 12, 38, 16, 40, 22, 37, 28, 36,
       36, 36, 35, 31, 35, 28, 39, 21, 43, 12, 52, 14, 60, 22, 56, 27, 50, 30,
-      61, 25, 66, 25, 72, 20, 77, 8, 80, 13, 87, 22, 94, 16, 98, 8, 105, 12,
+      61, 25, 66, 25, 68, 24, 70, 23, 69, 22, 72, 21, 73, 19, 74, 15, 75, 12,
+      76, 9, 77.5, 8, 78.5, 9, 80, 12, 80.5, 16, 82.5, 17.5, 86, 20, 88, 22,
+      90, 22, 92, 21, 94, 16, 98, 8, 105, 12,
       109, 15, 107, 21, 114, 22, 121, 30, 122, 38, 125, 40, 131, 43, 135, 48,
       141, 53, 156, 51, 162, 56, 170, 60, 178, 65, 170, 68, 160, 70, 140, 72,
       110, 74, 90, 75, 70, 72, 60, 69, 48, 68, 40, 66, 30, 70, 18, 69, 5, 61,
@@ -80,6 +82,7 @@ const LANDMASSES: { ring: number[] }[] = [
     ],
   },
   { ring: [44, -12, 50, -16, 47, -25, 44, -22, 43, -16, 44, -12] }, // Madagascar
+  { ring: [79.8, 9.5, 81, 9, 82, 7.5, 81.5, 6.2, 80.2, 6.5, 79.8, 8, 79.8, 9.5] }, // Sri Lanka
   { ring: [130, 32, 135, 34, 140, 36, 141, 40, 143, 44, 140, 43, 136, 36, 131, 33, 130, 32] }, // Japan
   { ring: [-5, 50, 0, 52, -2, 56, -5, 58, -7, 55, -5, 50] }, // Britain
   { ring: [109, 0, 114, 4, 118, 1, 116, -3, 110, -2, 109, 0] }, // Borneo
@@ -111,6 +114,13 @@ export default function ContourMap() {
     let field: Float32Array = new Float32Array(0);
     let cssW = 0;
     let cssH = 0;
+    // Projection window: wide screens get the whole world; narrow screens
+    // get a regional sheet centred near home so continents keep their shape.
+    let lonMin = -180;
+    let latMax = 90;
+    let lonSpan = 360;
+    let latSpan = 180;
+    let isPortrait = false;
     let raf = 0;
     let startTime = 0;
     let disposed = false;
@@ -170,6 +180,31 @@ export default function ContourMap() {
       canvas!.height = Math.round(cssH * dpr);
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
 
+      const aspect = cssW / cssH;
+      isPortrait = aspect <= 1.15;
+
+      if (isPortrait) {
+        // Portrait: shapeless terrain — three octaves of smoothed lattice
+        // noise, so the contours wander with no underlying figure at all
+        const coarse = bakeNoise(cols, rows, 4, 7, 79);
+        const medium = bakeNoise(cols, rows, 9, 15, 1234);
+        const fine = bakeNoise(cols, rows, 18, 30, 5678);
+        base = new Float32Array(cols * rows);
+        for (let i = 0; i < base.length; i++) {
+          const v = 0.55 * coarse[i] + 0.3 * medium[i] + 0.15 * fine[i];
+          // Stretch contrast so highs and lows reach the outer iso levels
+          base[i] = Math.min(Math.max(0.5 + (v - 0.5) * 1.7, 0.02), 0.95);
+        }
+        field = new Float32Array(cols * rows);
+        return;
+      }
+
+      // Landscape: the full world sheet
+      lonMin = -180;
+      latMax = 90;
+      lonSpan = 360;
+      latSpan = 180;
+
       // Rasterise the coastline rings at grid resolution, blurred so the
       // landmasses become smooth elevation rather than hard plateaus.
       const off = document.createElement("canvas");
@@ -184,8 +219,8 @@ export default function ContourMap() {
         octx.beginPath();
         const ring = land.ring;
         for (let i = 0; i < ring.length; i += 2) {
-          const px = ((ring[i] + 180) / 360) * cols;
-          const py = ((90 - ring[i + 1]) / 180) * rows;
+          const px = ((ring[i] - lonMin) / lonSpan) * cols;
+          const py = ((latMax - ring[i + 1]) / latSpan) * rows;
           if (i === 0) octx.moveTo(px, py);
           else octx.lineTo(px, py);
         }
@@ -282,8 +317,10 @@ export default function ContourMap() {
     const BEACON = "#ff2d1f";
 
     function drawHomeFix(reveal: number, t: number) {
-      const hx = ((HOME.lon + 180) / 360) * cssW;
-      const hy = ((90 - HOME.lat) / 180) * cssH;
+      if (isPortrait) return; // abstract islands carry no geography
+      const hx = ((HOME.lon - lonMin) / lonSpan) * cssW;
+      const hy = ((latMax - HOME.lat) / latSpan) * cssH;
+      if (hx < 0 || hx > cssW || hy < 0 || hy > cssH) return;
 
       // Beacon: a bright red fix that fires an expanding ring every 3s
       const phase = reduced ? 0 : (t % 3) / 3;
@@ -318,17 +355,19 @@ export default function ContourMap() {
         if (levelReveal <= 0) continue;
         const iso = ISO_MIN + ((ISO_MAX - ISO_MIN) * k) / (LEVELS - 1);
         const path = tracePaths(iso);
+        // Portrait sheets draw in soft grey so the type stays dominant
+        const lineColor = isPortrait ? "128, 125, 118" : inkColor;
         if (k === accentLevel) {
           ctx!.strokeStyle = accent;
           ctx!.globalAlpha = 0.95 * levelReveal;
           ctx!.lineWidth = 1.7;
         } else if (k % 4 === 0) {
           // Index contours, bolder like a real survey sheet
-          ctx!.strokeStyle = `rgba(${inkColor}, 0.6)`;
+          ctx!.strokeStyle = `rgba(${lineColor}, 0.6)`;
           ctx!.globalAlpha = levelReveal;
           ctx!.lineWidth = 1.25;
         } else {
-          ctx!.strokeStyle = `rgba(${inkColor}, 0.34)`;
+          ctx!.strokeStyle = `rgba(${lineColor}, 0.34)`;
           ctx!.globalAlpha = levelReveal;
           ctx!.lineWidth = 0.75;
         }
@@ -366,8 +405,8 @@ export default function ContourMap() {
         elevEl!.textContent = `ELEV ${sampleElevation(cursor.x, cursor.y).toLocaleString("en-US")} M`;
         if (coordRef.current) {
           // Equirectangular sheet: the cursor reads true world coordinates
-          const lat = 90 - (cursor.y / (rows - 1)) * 180;
-          const lon = (cursor.x / (cols - 1)) * 360 - 180;
+          const lat = latMax - (cursor.y / (rows - 1)) * latSpan;
+          const lon = lonMin + (cursor.x / (cols - 1)) * lonSpan;
           coordRef.current.textContent = `${Math.abs(lat).toFixed(2)}° ${lat < 0 ? "S" : "N"} · ${Math.abs(lon).toFixed(2)}° ${lon < 0 ? "W" : "E"}`;
         }
       } else {
