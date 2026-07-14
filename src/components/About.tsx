@@ -55,9 +55,9 @@ export default function About() {
         <div className="relative z-10 flex max-w-6xl flex-col items-center gap-10 px-6 py-32 sm:px-10">
           <p
             data-about-reveal
-            className="text-[10px] uppercase tracking-[0.35em] text-offwhite/50"
+            className="text-[14px] uppercase tracking-[0.35em] text-offwhite/50"
           >
-            Full-Stack Developer &mdash; Since 2019
+            Full-Stack Developer &mdash; Since 2021
           </p>
 
           <h2
@@ -73,8 +73,7 @@ export default function About() {
             data-about-reveal
             className="max-w-xl font-serif text-lg italic text-offwhite/60 sm:text-xl"
           >
-            &ldquo;It doesn&rsquo;t matter where you start, it&rsquo;s how you
-            progress from there.&rdquo;
+            &ldquo;We&rsquo;re here to put a dent in the universe. Otherwise, why else even be here?&rdquo; &mdash; Steve Jobs
           </p>
         </div>
       </Chapter>

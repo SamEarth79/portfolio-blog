@@ -236,7 +236,7 @@ export default function ContourMap() {
       base = new Float32Array(cols * rows);
       for (let i = 0; i < base.length; i++) {
         const land = img[i * 4] / 255;
-        base[i] = land * (0.52 + 0.4 * landNoise[i]) + (1 - land) * 0.1 * seaNoise[i];
+        base[i] = land * (0.52 + 0.4 * landNoise[i]) + (1 - land) * 0.07 * seaNoise[i];
       }
       field = new Float32Array(cols * rows);
     }
@@ -356,16 +356,16 @@ export default function ContourMap() {
         const iso = ISO_MIN + ((ISO_MAX - ISO_MIN) * k) / (LEVELS - 1);
         const path = tracePaths(iso);
         // Portrait sheets draw in soft grey so the type stays dominant
-        const lineColor = isPortrait ? "128, 125, 118" : inkColor;
+        const lineColor = k === 0 ? inkColor : (isPortrait ? "128, 125, 118" : "148, 145, 138");
         if (k === accentLevel) {
           ctx!.strokeStyle = accent;
           ctx!.globalAlpha = 0.95 * levelReveal;
           ctx!.lineWidth = 1.7;
-        } else if (k % 4 === 0) {
+        } else if (k === 0 || k % 4 === 0) {
           // Index contours, bolder like a real survey sheet
-          ctx!.strokeStyle = `rgba(${lineColor}, 0.6)`;
+          ctx!.strokeStyle = `rgba(${lineColor}, ${k === 0 ? 0.51 : 0.6})`;
           ctx!.globalAlpha = levelReveal;
-          ctx!.lineWidth = 1.25;
+          ctx!.lineWidth = k === 0 ? 0.9 : 1.25;
         } else {
           ctx!.strokeStyle = `rgba(${lineColor}, 0.34)`;
           ctx!.globalAlpha = levelReveal;

@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { lenisRef } from "@/lib/lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,8 +13,6 @@ export default function SmoothScroll({
 }: {
   children: React.ReactNode;
 }) {
-  const lenisRef = useRef<Lenis | null>(null);
-
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -33,8 +32,16 @@ export default function SmoothScroll({
     const onRefresh = () => lenis.resize();
     ScrollTrigger.addEventListener("refresh", onRefresh);
 
-    const tickerCallback = (time: number) => {
-      lenis.raf(time * 1000);
+    // lagSmoothing(0) below lets real stalls (HMR, GC pauses, backgrounded
+    // tabs) through as one big deltaTime instead of gsap masking them — good
+    // for scrub accuracy, but a single oversized tick can make a duration-based
+    // lenis.scrollTo() jump straight to completion instead of easing there.
+    // Clamp what reaches Lenis so a stall can't skip an in-flight animation.
+    let lastRafMs = performance.now();
+    const tickerCallback = () => {
+      const now = performance.now();
+      lastRafMs += Math.min(now - lastRafMs, 50);
+      lenis.raf(lastRafMs);
     };
     gsap.ticker.add(tickerCallback);
     gsap.ticker.lagSmoothing(0);

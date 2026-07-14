@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Work_Sans, Space_Grotesk, Fraunces } from "next/font/google";
+import "@fontsource/mona-sans/latin-700.css";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Nav from "@/components/Nav";
@@ -12,7 +13,7 @@ const workSans = Work_Sans({
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["300", "700"],
 });
 
 const fraunces = Fraunces({

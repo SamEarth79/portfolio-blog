@@ -23,12 +23,7 @@ type Event = {
 // Chronological, past -> present.
 const EVENTS: Event[] = [
   {
-    period: "The Spark",
-    title: "Interest in Computers",
-    note: "Where the curiosity started — taking machines apart just to see how they worked, and never quite putting the questions down.",
-  },
-  {
-    period: "Foundation",
+    period: "2018-2022",
     title: "Computer Science Engineering",
     org: "B.E. — Computer Science",
     note: "Turned the curiosity into fundamentals: algorithms, systems, and a habit of building things end to end.",
@@ -245,7 +240,7 @@ export default function Experience() {
 
                       <div className="flex flex-col gap-1">
                         <h3 className="font-display text-xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-2xl">
-                          {e.title}
+                          <span className="bg-accent px-1.5 py-0.5 text-navy">{i}.</span> {e.title}
                         </h3>
                         {e.org && (
                           <p className="font-serif text-base italic text-ink/70">
@@ -299,7 +294,7 @@ export default function Experience() {
                       )}
 
                       {e.tools && (
-                        <p className="mt-1 font-mono text-[11px] leading-relaxed text-ink/45">
+                        <p className="mt-1 inline-block self-start bg-accent px-2 py-1 font-mono text-[11px] leading-relaxed text-navy">
                           {e.tools}
                         </p>
                       )}

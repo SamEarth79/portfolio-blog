@@ -42,20 +42,20 @@ const SOCIALS: {
 }[] = [
   {
     name: "LinkedIn",
-    meta: "12.4K followers", // placeholder
+    meta: "2,000+ followers",
     href: "https://linkedin.com/in/samarthmm",
     icon: LinkedInIcon,
   },
   {
     name: "GitHub",
-    meta: "1.3K stars · 480 repos", // placeholder
-    href: "https://github.com/samarthmm",
+    meta: "500+ PRs · 53 Repos",
+    href: "https://github.com/SamEarth79",
     icon: GitHubIcon,
   },
   {
     name: "Instagram",
-    meta: "@samarth.mm",
-    href: "https://instagram.com/samarth.mm",
+    meta: "@samarth_m_",
+    href: "https://www.instagram.com/samarth_m_",
     icon: InstagramIcon,
   },
   {
@@ -101,7 +101,7 @@ export default function Socials() {
   }, []);
 
   return (
-    <div ref={rootRef} className="block w-full">
+    <div ref={rootRef} id="connect" className="block w-full">
       <Chapter background="warm">
 
         <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 py-32 sm:px-10">
@@ -110,7 +110,7 @@ export default function Socials() {
               Elsewhere
             </p>
             <h2 className="font-display text-[12vw] font-bold uppercase leading-[0.9] tracking-tight text-ink sm:text-[7vw]">
-              Let&rsquo;s connect
+              Let&rsquo;s Collaborate
             </h2>
           </div>
 

@@ -26,16 +26,29 @@
   --font-sans: var(--font-work-sans);
   --font-display: var(--font-space-grotesk);
   --font-serif: var(--font-fraunces);
+  --font-mona: "Mona Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
   background: var(--color-bg-charcoal);
   color: var(--color-fg);
   font-family: var(--font-sans);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 ::selection {
