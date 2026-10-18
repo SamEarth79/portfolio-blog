@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -17,6 +17,8 @@ type Tile = {
   images?: string[];
   variant?: "white" | "badge" | "metrics";
   metrics?: { value: string; label: string }[];
+  /* Crossfade through all images instead of laying them side by side */
+  slideshow?: boolean;
 };
 
 /* Scattered scrapbook tiles: varied sizes + vertical offsets, caption above each */
@@ -42,8 +44,16 @@ const TILES: Tile[] = [
     images: ["/projects/aws-summit/booth.jpeg"],
   },
   {
+    caption: "HACKATHON, 2026",
+    title: "4th @ YC Hackathon",
+    note: "Built a sub-10ms retrieval system for Emergency Dispatch agents. The people I met mattered more than the placing.",
+    sizeClass: "h-[50vh] w-[80vw] self-end md:mb-[6vh] md:w-[36vw]",
+    images: ["/projects/yc-hackathon/prize.jpeg", "/projects/yc-hackathon/win.jpeg"],
+    slideshow: true,
+  },
+  {
     caption: "NOW, 2026",
-    title: "Skye",
+    title: "Slyce",
     note: "Link In Bio SaaS, coming soon",
     sizeClass: "h-[62vh] w-[80vw] self-center md:w-[34vw]",
     variant: "white",
@@ -76,6 +86,14 @@ function TileBody({ tile, index }: { tile: Tile; index: number }) {
   const isBadge = tile.variant === "badge";
   const isMetrics = tile.variant === "metrics";
   const isLight = isWhite || isBadge;
+  const slideCount = tile.slideshow ? tile.images?.length ?? 0 : 0;
+  const [slide, setSlide] = useState(0);
+  useEffect(() => {
+    if (slideCount < 2) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = setInterval(() => setSlide((s) => (s + 1) % slideCount), 3500);
+    return () => clearInterval(id);
+  }, [slideCount]);
   return (
     <article
       role={tile.href ? "link" : undefined}
@@ -89,11 +107,29 @@ function TileBody({ tile, index }: { tile: Tile; index: number }) {
       {isWhite && (
         <div className="absolute inset-0 z-0 flex items-center justify-center">
           <span className="font-display text-6xl font-bold uppercase tracking-tight sm:text-7xl">
-            Skye
+            Slyce
           </span>
         </div>
       )}
-      {!isBadge && tile.images && (
+      {tile.slideshow && tile.images && (
+        <div className="absolute inset-0">
+          {tile.images.map((src, i) => (
+            <Image
+              key={src}
+              src={src}
+              alt=""
+              fill
+              sizes="(min-width: 768px) 40vw, 85vw"
+              loading="eager"
+              className={`object-cover transition-opacity duration-1000 ${
+                i === slide ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-navy/55" />
+        </div>
+      )}
+      {!isBadge && !tile.slideshow && tile.images && (
         <div className="absolute inset-0 flex">
           {tile.images.slice(0, 2).map((src) => (
             <div key={src} className="relative flex-1">
@@ -101,7 +137,13 @@ function TileBody({ tile, index }: { tile: Tile; index: number }) {
                 src={src}
                 alt=""
                 fill
-                sizes={isMetrics ? "(min-width: 768px) 46vw, 85vw" : "40vh"}
+                sizes={
+                  isMetrics
+                    ? "(min-width: 768px) 46vw, 85vw"
+                    : tile.images!.length === 1
+                      ? "(min-width: 768px) 40vw, 85vw"
+                      : "40vh"
+                }
                 quality={isMetrics ? 100 : undefined}
                 className={
                   tile.images!.length === 1 && !isMetrics
@@ -304,7 +346,7 @@ export default function Showcase() {
         className="relative z-10 flex w-full flex-col items-stretch gap-10 px-6 py-32 md:h-full md:w-max md:flex-row md:items-stretch md:gap-[7vw] md:py-0 md:pl-[48vw] md:pr-[22vw]"
       >
         {TILES.map((tile, i) => (
-          <div key={tile.title} className="contents">
+          <div key={tile.title ?? tile.caption} className="contents">
             <figure className={`flex shrink-0 flex-col gap-3 ${tile.sizeClass}`}>
               <figcaption className="text-[10px] uppercase tracking-[0.3em] opacity-50">
                 {tile.caption}
