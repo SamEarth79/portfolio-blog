@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframe: race</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:14px/1.5 system-ui,sans-serif;background:#ddd;color:#222;padding:16px}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#666;margin:24px 0 8px}
+.screen{background:#fff;border:1px solid #999;max-width:1100px;margin:0 auto}
+h2{max-width:1100px;margin-inline:auto}
+.nav{display:flex;gap:16px;align-items:center;padding:12px 20px;border-bottom:1px dashed #bbb;flex-wrap:wrap}
+.nav .sp{flex:1}
+.box{border:1px solid #888;border-radius:4px;padding:4px 10px;background:#fff;font:inherit}
+.head{text-align:center;padding:28px 16px 8px}
+.head h1{font-size:32px}
+.timer{font-size:40px;font-weight:700;text-align:center;font-variant-numeric:tabular-nums}
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px 20px}
+.panel{border:1px solid #888;border-radius:6px;padding:16px;min-width:0}
+.panel.focus{border:2px solid #222}
+.top{display:flex;justify-content:space-between;margin-bottom:10px;font-weight:600}
+.text{font:18px/1.8 ui-monospace,monospace;color:#aaa;height:130px;overflow:hidden}
+.ok{color:#111}.bad{color:#111;background:#bbb;text-decoration:underline wavy}
+.caret{border-left:2px solid #000}
+.foot{display:flex;gap:12px;justify-content:center;padding:4px 16px 20px;align-items:center;flex-wrap:wrap}
+.hint{color:#666;text-align:center}
+.tag{font-size:11px;color:#777}
+@media(max-width:700px){.panels{grid-template-columns:1fr}.text{height:100px;font-size:16px}}
+</style>
+</head>
+<body>
+
+<h2>State 1: ready (page just opened)</h2>
+<div class="screen">
+  <div class="nav" data-reuse="Nav"><b>samarthmm.com</b><span class="sp"></span><span class="box" data-wf="race.nav-link">Race Me</span><span>Projects</span><span class="box">Let's Collaborate</span> <span class="tag">[reuse: Nav]</span></div>
+  <div class="head"><h1 data-wf="race.heading">Think you can beat me?</h1></div>
+  <div class="timer" data-wf="race.timer" style="visibility:hidden">30</div>
+  <div class="panels">
+    <div class="panel focus" data-wf="race.player-panel">
+      <div class="top"><span>You</span><span data-wf="race.player-wpm">0 WPM</span></div>
+      <div class="text" data-wf="race.player-text"><span class="caret"></span>The best interfaces feel obvious once you have used them, but getting there takes a lot of quiet work. Every extra click is a small tax on attention, and people notice it even when they cannot explain why.</div>
+    </div>
+    <div class="panel" data-wf="race.ghost-panel">
+      <div class="top"><span>Samarth</span><span data-wf="race.ghost-wpm">0 WPM</span></div>
+      <div class="text" data-wf="race.ghost-text"><span class="caret"></span>The best interfaces feel obvious once you have used them, but getting there takes a lot of quiet work. Every extra click is a small tax on attention, and people notice it even when they cannot explain why.</div>
+    </div>
+  </div>
+  <div class="foot"><span class="hint" data-wf="race.start-hint">Start typing to begin the race.</span></div>
+</div>
+
+<h2>State 2: racing (typo shown, live WPM)</h2>
+<div class="screen">
+  <div class="head"><h1>Think you can beat me?</h1></div>
+  <div class="timer">17</div>
+  <div class="panels">
+    <div class="panel focus">
+      <div class="top"><span>You</span><span>72 WPM</span></div>
+      <div class="text"><span class="ok">The best interfaces feel obvious once you h</span><span class="bad">s</span><span class="ok">ve us</span><span class="caret"></span>ed them, but getting there takes a lot of quiet work. Every extra click is a small tax on attention.</div>
+    </div>
+    <div class="panel">
+      <div class="top"><span>Samarth</span><span>89 WPM</span></div>
+      <div class="text"><span class="ok">The best interfaces feel obvious once you have used them, but gett</span><span class="caret"></span>ing there takes a lot of quiet work. Every extra click is a small tax on attention.</div>
+    </div>
+  </div>
+  <div class="foot"><button class="box" data-wf="race.restart">Restart</button><span class="tag">Esc also restarts. Long text scrolls so the caret line stays in view.</span></div>
+</div>
+
+<h2>State 3: typing area lost focus</h2>
+<div class="screen">
+  <div class="panels">
+    <div class="panel" style="text-align:center"><div class="text" style="display:grid;place-items:center;color:#222" data-wf="race.focus-prompt">Click or tap here to keep typing</div></div>
+    <div class="panel"><div class="top"><span>Samarth</span><span>90 WPM</span></div><div class="text">(keeps typing, the timer does not pause)</div></div>
+  </div>
+</div>
+
+</body>
+</html>

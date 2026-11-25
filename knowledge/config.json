@@ -1,0 +1,10 @@
+{
+  "prefix": "PF",
+  "nextFeatureNumber": 2,
+  "nextStoryNumber": {
+    "PF-001-typing-challenge": 4
+  },
+  "notion": {
+    "rootPage": null
+  }
+}
