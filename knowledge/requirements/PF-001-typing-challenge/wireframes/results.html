@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframe: results</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:14px/1.5 system-ui,sans-serif;background:#ddd;color:#222;padding:16px}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#666;max-width:1100px;margin:24px auto 8px}
+.screen{background:#fff;border:1px solid #999;max-width:1100px;margin:0 auto;padding:24px 20px}
+h1{text-align:center;font-size:30px;margin-bottom:16px}
+.gif{width:min(360px,100%);height:200px;margin:0 auto 20px;border:2px dashed #888;display:grid;place-items:center;color:#666}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{border:1px solid #888;border-radius:6px;padding:16px}
+.card.win{border:2px solid #222}
+.big{font-size:48px;font-weight:700;line-height:1.1}
+.stats{display:flex;gap:20px;flex-wrap:wrap;margin-top:8px}
+.stats b{display:block;font-size:20px}
+.chart{border:1px solid #888;border-radius:6px;padding:12px;margin-top:16px}
+svg{width:100%;height:auto;display:block}
+.foot{display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.box{border:1px solid #888;border-radius:4px;padding:8px 18px;background:#fff;font:inherit}
+.primary{background:#222;color:#fff}
+@media(max-width:700px){.cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<h2>State 1: visitor loses</h2>
+<div class="screen">
+  <h1 data-wf="results.verdict">I win this one.</h1>
+  <div class="gif" data-wf="results.gif">GIF placeholder, picked by your WPM</div>
+  <div class="cols">
+    <div class="card" data-wf="results.player-card">
+      <div>You</div><div class="big" data-wf="results.player-wpm">72 WPM</div>
+      <div class="stats"><div>Accuracy<b data-wf="results.player-accuracy">93%</b></div><div>Characters (correct / wrong)<b data-wf="results.player-chars">180 / 9</b></div><div>Time<b data-wf="results.player-time">30s</b></div></div>
+    </div>
+    <div class="card win" data-wf="results.ghost-card">
+      <div>Samarth</div><div class="big" data-wf="results.ghost-wpm">91 WPM</div>
+      <div class="stats"><div>Accuracy<b data-wf="results.ghost-accuracy">96%</b></div><div>Characters (correct / wrong)<b data-wf="results.ghost-chars">228 / 9</b></div><div>Time<b>30s</b></div></div>
+    </div>
+  </div>
+  <div class="chart" data-wf="results.chart">
+    <div>WPM over time &nbsp; ━ You &nbsp; ┅ Samarth</div>
+    <svg viewBox="0 0 600 180" aria-label="WPM over 30 seconds">
+      <g stroke="#ddd"><path d="M40 20H590M40 65H590M40 110H590M40 155H590"/></g>
+      <g font-size="10" fill="#666"><text x="8" y="23">120</text><text x="14" y="68">80</text><text x="14" y="113">40</text><text x="20" y="158">0</text><text x="40" y="174">1s</text><text x="305" y="174">15s</text><text x="572" y="174">30s</text></g>
+      <polyline fill="none" stroke="#222" stroke-width="2.5" points="40,128 80,100 130,86 200,82 280,76 360,80 440,72 520,76 590,74"/>
+      <polyline fill="none" stroke="#777" stroke-width="2.5" stroke-dasharray="7 5" points="40,128 80,88 130,62 200,58 280,55 360,47 440,55 520,54 590,53"/>
+    </svg>
+  </div>
+  <div class="foot"><button class="box primary" data-wf="results.retry">Try again</button><a class="box" data-wf="results.home">Back to portfolio</a></div>
+</div>
+
+<h2>State 2: verdict copy variants (same layout, winner card gets the heavy border)</h2>
+<div class="screen">
+  <p><b>Visitor WPM above Samarth's score this run:</b> "Okay, you beat me."</p>
+  <p><b>Visitor WPM equal to it:</b> "Dead heat. Rematch?"</p>
+  <p><b>Visitor WPM below it:</b> "I win this one."</p>
+  <p style="margin-top:12px"><b>Placeholder GIF tiers:</b> under 60; 60 up to below Samarth's score; equal to or above it.</p>
+</div>
+
+</body>
+</html>
